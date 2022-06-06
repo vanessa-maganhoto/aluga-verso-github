@@ -1,13 +1,9 @@
 package com.dhbrasil.projetoIntegrador.AlugaVerso.dto;
 
-import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Attributes;
-import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Images;
 import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Land;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class LandDTO {
 
@@ -21,6 +17,10 @@ public class LandDTO {
     private List<ImagesDTO> images = new ArrayList<>();
     private List<AttributesDTO> attributes = new ArrayList<>();
     private CategoryDTO category;
+    private MetaverseDTO metaverse;
+    private  List<ReservationDTO> reservation = new ArrayList<>();
+
+
     public LandDTO(){}
 
     public LandDTO(Integer id, String name, String description, String localizationX, String localizationY) {
@@ -43,7 +43,9 @@ public class LandDTO {
         land.setPrice(this.price);
         this.images.forEach(img ->land.getImages().add(img.toEntity()));
         this.attributes.forEach(attr -> land.getAttributes().add(attr.toEntity()));
+        this.reservation.forEach(res ->land.getReservation().add(res.toEntity()));
         land.setCategory(this.category.toEntity());
+        land.setMetaverse(this.metaverse.toEntity());
         return land;
     }
 
@@ -55,13 +57,13 @@ public class LandDTO {
         this.localizationY = land.getLocalizationY();
         this.price = land.getPrice();
         this.category = new CategoryDTO(land.getCategory());
+        this.metaverse = new MetaverseDTO(land.getMetaverse());
+        land.getImages().forEach(image -> this.images.add(new ImagesDTO(image)));
+        land.getAttributes().forEach(attr -> this.attributes.add(new AttributesDTO(attr)));
+        land.getReservation().forEach(res -> this.reservation.add(new ReservationDTO(res)));
     }
 
-    public LandDTO(Land land, Set<Images>images, Set<Attributes> attributes){
-        this(land);
-        images.forEach(img ->this.images.add(new ImagesDTO(img)));
-        attributes.forEach(a ->this.attributes.add(new AttributesDTO(a)));
-    }
+
     public Integer getId() {
         return id;
     }
@@ -134,5 +136,19 @@ public class LandDTO {
         this.category = category;
     }
 
+    public MetaverseDTO getMetaverse() {
+        return metaverse;
+    }
 
+    public void setMetaverse(MetaverseDTO metaverse) {
+        this.metaverse = metaverse;
+    }
+
+    public List<ReservationDTO> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(List<ReservationDTO> reservation) {
+        this.reservation = reservation;
+    }
 }

@@ -11,7 +11,7 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Set;
-
+/*
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
@@ -34,7 +34,7 @@ public class TestConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Category c1 = new Category(null, "Metaverso 1", "https://img.ibxk.com.br/2021/10/20/second-live-metaverso-20155124402367.jpg", "Espaço para reuniões");
+        Category c1 = new Category(null, "Metaverso 1", "https://cdn.discordapp.com/attachments/958381134205567073/980865408863182898/unknown.png", "Espaço para reuniões");
         Category c2 = new Category(null, "Metaverso 2", "https://st4.depositphotos.com/1793519/23667/i/600/depositphotos_236672870-stock-photo-3d-render-visualization-of-a.jpg", "Espaço para filmes");
         Category c3 = new Category(null, "Metaverso 3", "https://veja.abril.com.br/wp-content/uploads/2022/02/metaverso.jpg", "Espaço para compras");
         Category c4 = new Category(null, "Metaverso 4", "https://img.olhardigital.com.br/wp-content/uploads/2021/12/Pessoas-no-metaverso.jpg", "Espaço para interações casuais");
@@ -54,23 +54,22 @@ public class TestConfig implements CommandLineRunner {
         Metaverse m5 = new Metaverse(null, "Decentraland");
         metaverseRepository.saveAll(Arrays.asList(m1, m2, m3, m4, m5));
 
+        Images i1 = new Images( "Imagem A", "Imagem A");
+        Images i2 = new Images( "Imagem B", "Imagem B");
+        Images i3 = new Images( "Imagem C", "Imagem C");
+        Images i4 = new Images( "Imagem D", "Imagem D");
+
         Land l1 = new Land(null, "Terreno 1", "Terreno no metaverso 1", "10", "20", 320.0);
-        Land l2 = new Land(null, "Terreno 2", "Terreno no metaverso 1", "10", "20", 320.0);
         l1.setMetaverse(m1);
-        l2.setMetaverse(m2);
         l1.setCategory(c1);
-        l2.setCategory(c2);
+        l1.setImages(Set.of(i1, i2));
         l1 = landRepository.save(l1);
+
+        Land l2 = new Land(null, "Terreno 2", "Terreno no metaverso 1", "10", "20", 320.0);
+        l2.setMetaverse(m2);
+        l2.setCategory(c2);
+        l2.setImages(Set.of(i3, i4));
         l2 = landRepository.save(l2);
-
-
-        Images i1 = new Images( "Imagem A", "Imagem A", l1);
-        Images i2 = new Images( "Imagem B", "Imagem B", l1);
-        Images i3 = new Images( "Imagem C", "Imagem C", l2);
-        Images i4 = new Images( "Imagem D", "Imagem D", l2);
-        imagesRepository.saveAll(Arrays.asList(i1, i2, i3, i4));
-
-
     }
-}
+}*/
 

@@ -1,12 +1,6 @@
 package com.dhbrasil.projetoIntegrador.AlugaVerso.dto;
 
 import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Category;
-import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Land;
-
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 public class CategoryDTO {
 
@@ -15,7 +9,6 @@ public class CategoryDTO {
     private String imagemUrl;
     private String description;
 
-    private List<LandDTO> lands = new ArrayList<>();
     public CategoryDTO(){}
 
     public CategoryDTO(Integer id, String name, String imagemUrl, String description) {
@@ -37,10 +30,6 @@ public class CategoryDTO {
         this.description = category.getDescription();
     }
 
-    public CategoryDTO(Category category, Set<Land> lands){
-        this(category);
-        lands.forEach(land -> this.lands.add(new LandDTO(land)));
-    }
     public Integer getId() {
         return id;
     }
@@ -71,13 +60,5 @@ public class CategoryDTO {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public List<LandDTO> getLands() {
-        return lands;
-    }
-
-    public void setLands(List<LandDTO> lands) {
-        this.lands = lands;
     }
 }

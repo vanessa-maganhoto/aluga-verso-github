@@ -1,26 +1,26 @@
 package com.dhbrasil.projetoIntegrador.AlugaVerso.dto;
 
-import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Metaverse;
+import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Function;
 
-public class MetaverseDTO {
+public class FunctionDTO {
 
     private Integer id;
     private String name;
 
-    public MetaverseDTO(){}
+    public FunctionDTO(){}
 
-    public MetaverseDTO(Integer id, String name) {
+    public FunctionDTO(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Metaverse toEntity(){
-        return new Metaverse(this.id, this.name);
+    public FunctionDTO(Function function){
+        id = function.getId();
+        name = function.getName();
     }
 
-    public MetaverseDTO(Metaverse metaverse){
-        this.id = metaverse.getId();
-        this.name = metaverse.getName();
+    public Function toEntity(){
+        return new Function(this.id, this.name);
     }
 
     public Integer getId() {
@@ -38,5 +38,4 @@ public class MetaverseDTO {
     public void setName(String name) {
         this.name = name;
     }
-
 }

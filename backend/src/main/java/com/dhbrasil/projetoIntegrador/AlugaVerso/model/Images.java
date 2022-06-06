@@ -5,6 +5,7 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Objects;
 
 @Entity
 @Table(name = "images")
@@ -29,9 +30,10 @@ public class Images {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant deletedAt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "land_id")
     private Land land;
+
     public Images() {
     }
 
@@ -45,6 +47,11 @@ public class Images {
         this.title = title;
         this.url = url;
         this.land = land;
+    }
+
+    public Images(String title, String url) {
+        this.title = title;
+        this.url = url;
     }
 
     public Integer getId() {
@@ -96,14 +103,39 @@ public class Images {
     }
 
     @PrePersist
-    public void prePersist(){
-
+    public void prePersist() {
         createdAt = Instant.now();
         deleted = false;
     }
 
     @PreUpdate
-    public void preUpdate(){
+    public void preUpdate() {
         updatedAt = Instant.now();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Images images = (Images) o;
+        return deleted == images.deleted && Objects.equals(id, images.id) && Objects.equals(title, images.title) && Objects.equals(url, images.url) && Objects.equals(createdAt, images.createdAt) && Objects.equals(updatedAt, images.updatedAt) && Objects.equals(deletedAt, images.deletedAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, url, createdAt, updatedAt, deleted, deletedAt);
+    }
+
+    @Override
+    public String toString() {
+        return "Images{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", url='" + url + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", deleted=" + deleted +
+                ", deletedAt=" + deletedAt +
+                '}';
     }
 }

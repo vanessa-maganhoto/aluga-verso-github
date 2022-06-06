@@ -8,8 +8,6 @@ public class ImagesDTO {
     private String title;
     private String url;
 
-    private LandDTO landDTO;
-
     public ImagesDTO(){}
 
     public ImagesDTO(Integer id, String title, String url) {
@@ -52,11 +50,4 @@ public class ImagesDTO {
         this.url = url;
     }
 
-    public LandDTO getLandDTO() {
-        return landDTO;
-    }
-
-    public void setLandDTO(LandDTO landDTO) {
-        this.landDTO = landDTO;
-    }
 }

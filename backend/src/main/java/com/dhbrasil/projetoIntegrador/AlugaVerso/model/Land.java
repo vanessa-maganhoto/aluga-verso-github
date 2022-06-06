@@ -1,13 +1,12 @@
 package com.dhbrasil.projetoIntegrador.AlugaVerso.model;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -24,12 +23,15 @@ public class Land {
     private String localizationY;
 
     private Double price;
-    @OneToMany(mappedBy = "land")
+    @OneToMany(mappedBy = "land", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     Set<Images> images = new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @OneToMany(mappedBy = "land", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set <Reservation> reservation = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "metaverse_id")
@@ -47,7 +49,7 @@ public class Land {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant deletedAt;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "tb_land_attributes",
             joinColumns = @JoinColumn(name = "land_id"),
@@ -77,6 +79,20 @@ public class Land {
         this.price = price;
         this.images = images;
         this.category = category;
+        this.metaverse = metaverse;
+        this.attributes = attributes;
+    }
+
+    public Land(Integer id, String name, String description, String localizationX, String localizationY, Double price, Set<Images> images, Category category, Set<Reservation> reservation, Metaverse metaverse, Set<Attributes> attributes) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.localizationX = localizationX;
+        this.localizationY = localizationY;
+        this.price = price;
+        this.images = images;
+        this.category = category;
+        this.reservation = reservation;
         this.metaverse = metaverse;
         this.attributes = attributes;
     }
@@ -153,6 +169,14 @@ public class Land {
         this.price = price;
     }
 
+    public Set<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Set<Reservation> reservation) {
+        this.reservation = reservation;
+    }
+
     public Instant getCreatedAt() {
         return createdAt;
     }
@@ -178,14 +202,49 @@ public class Land {
     }
 
     @PrePersist
-    public void prePersist(){
-
+    public void prePersist() {
         createdAt = Instant.now();
         deleted = false;
+        if (images != null) {
+            images.forEach(image -> image.setLand(this));
+        }
     }
 
     @PreUpdate
-    public void preUpdate(){
+    public void preUpdate() {
         updatedAt = Instant.now();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Land land = (Land) o;
+        return deleted == land.deleted && Objects.equals(id, land.id) && Objects.equals(name, land.name) && Objects.equals(description, land.description) && Objects.equals(localizationX, land.localizationX) && Objects.equals(localizationY, land.localizationY) && Objects.equals(price, land.price) && Objects.equals(images, land.images) && Objects.equals(category, land.category) && Objects.equals(metaverse, land.metaverse) && Objects.equals(createdAt, land.createdAt) && Objects.equals(updatedAt, land.updatedAt) && Objects.equals(deletedAt, land.deletedAt) && Objects.equals(attributes, land.attributes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description, localizationX, localizationY, price, images, category, metaverse, createdAt, updatedAt, deleted, deletedAt, attributes);
+    }
+
+    @Override
+    public String toString() {
+        return "Land{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", localizationX='" + localizationX + '\'' +
+                ", localizationY='" + localizationY + '\'' +
+                ", price=" + price +
+                ", images=" + images +
+                ", category=" + category +
+                ", metaverse=" + metaverse +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", deleted=" + deleted +
+                ", deletedAt=" + deletedAt +
+                ", attributes=" + attributes +
+                '}';
     }
 }

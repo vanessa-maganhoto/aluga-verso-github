@@ -7,8 +7,18 @@ import com.dhbrasil.projetoIntegrador.AlugaVerso.repository.CategoryRepository;
 import com.dhbrasil.projetoIntegrador.AlugaVerso.repository.ImagesRepository;
 import com.dhbrasil.projetoIntegrador.AlugaVerso.repository.LandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Service
 public class LandService {
@@ -24,18 +34,77 @@ public class LandService {
 
     //Cadastrar terreno
     @Transactional
-    public LandDTO insert(LandDTO landDTO){
+    public Integer insert(LandDTO landDTO) {
         Land land = landRepository.save(landDTO.toEntity());
-
-        if (land.getImages() != null) {
-            land.getImages().forEach(img -> img.setLand(land));
-            imagesRepository.saveAll(land.getImages());
-        }
-
-        return new LandDTO(landRepository.findById(land.getId()).get());
+        return land.getId();
     }
 
+    //Lista paginada das terrenos
+    @Transactional(readOnly = true)
+    public Page<LandDTO> findAllPaged(PageRequest pageRequest){
+        Page<Land> list = landRepository.findAll(pageRequest);
+        return list.map(x -> new LandDTO(x));
+    }
 
+    //Listar todas os terrenos
+    @Transactional(readOnly = true)
+    public List<LandDTO> findAll(){
+        List<Land> list = landRepository.findAll();
+        return list.stream().map(x -> new LandDTO(x)).collect(Collectors.toList());
+    }
 
+    //Busca por id
+    @Transactional(readOnly = true)
+    public LandDTO findById(Integer id){
+        Optional<Land> landObj = landRepository.findById(id);
+        Land land = landObj.orElseThrow(()-> new ResponseStatusException(NOT_FOUND));
+        return new LandDTO(land);
+    }
 
+    //Deletar terreno
+    @Transactional
+    public void delete(Integer id){
+        try{
+            landRepository.deleteById(id);
+        } catch (EmptyResultDataAccessException e){
+            throw new ResponseStatusException(NOT_FOUND, "Terreno nâo encontrada: "+id);
+        }
+    }
+
+    //Atualizar terreno
+    @Transactional
+    public LandDTO update(LandDTO dto){
+        Land currentLand = landRepository.findById(dto.getId())
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND));
+
+        currentLand.setName(dto.getName());
+        currentLand.setDescription(dto.getDescription());
+        currentLand.setLocalizationX(dto.getLocalizationX());
+        currentLand.setLocalizationY(dto.getLocalizationY());
+        currentLand.setPrice(dto.getPrice());
+        currentLand.setCategory(dto.getCategory().toEntity());
+        currentLand.setMetaverse(dto.getMetaverse().toEntity());
+
+        Land updateLand = landRepository.save(currentLand);
+        return new LandDTO(updateLand);
+    }
+
+    //Busca por cidade (metaverse)
+    @Transactional(readOnly = true)
+    public List<LandDTO> listByMetaverse(Integer idMetaverse) {
+
+        return landRepository.findByMetaverseId(idMetaverse)
+                .stream()
+                .map(p -> new LandDTO(p))
+                .collect(Collectors.toList());
+    }
+    //Busca por categoria
+    @Transactional(readOnly = true)
+    public List<LandDTO> listByCategory(Integer idCategory) {
+
+        return landRepository.findByCategoryId(idCategory)
+                .stream()
+                .map(p -> new LandDTO(p))
+                .collect(Collectors.toList());
+    }
 }
