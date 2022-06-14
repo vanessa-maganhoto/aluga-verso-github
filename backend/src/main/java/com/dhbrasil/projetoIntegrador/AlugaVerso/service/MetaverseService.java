@@ -1,11 +1,11 @@
 package com.dhbrasil.projetoIntegrador.AlugaVerso.service;
 
-import com.dhbrasil.projetoIntegrador.AlugaVerso.dto.CategoryDTO;
 import com.dhbrasil.projetoIntegrador.AlugaVerso.dto.MetaverseDTO;
-import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Category;
 import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Metaverse;
 import com.dhbrasil.projetoIntegrador.AlugaVerso.repository.MetaverseRepository;
+import com.dhbrasil.projetoIntegrador.AlugaVerso.service.exceptions.DatabaseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -52,6 +52,7 @@ public class MetaverseService {
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND));
 
         currentMetaverse.setName(dto.getName());
+        currentMetaverse.setImagemUrl(dto.getImagemUrl());
         Metaverse updatedMetaverse = metaverseRepository.save(currentMetaverse);
         return new MetaverseDTO(updatedMetaverse);
     }
@@ -62,6 +63,9 @@ public class MetaverseService {
             metaverseRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e){
             throw new ResponseStatusException(NOT_FOUND, "Categoria nâo encontrada: "+id);
+        }
+        catch (DataIntegrityViolationException e) {
+            throw new DatabaseException("Integrity violation");
         }
     }
 }

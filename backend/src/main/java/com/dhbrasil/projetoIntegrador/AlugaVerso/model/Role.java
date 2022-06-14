@@ -6,17 +6,14 @@ import org.hibernate.annotations.Where;
 import javax.persistence.*;
 import java.time.Instant;
 @Entity
-@Table(name = "function")
-@SQLDelete(sql = "UPDATE function SET deleted=true, deleted_at=now() WHERE id=?")
+@Table(name = "role")
+@SQLDelete(sql = "UPDATE role SET deleted=true, deleted_at=now() WHERE id=?")
 @Where(clause = "deleted=false")
-public class Function {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-
-    @OneToOne(mappedBy = "function")
-    private User user;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant createdAt;
@@ -30,9 +27,9 @@ public class Function {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant deletedAt;
 
-    public Function(){}
+    public Role(){}
 
-    public Function(Integer id, String name) {
+    public Role(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -51,14 +48,6 @@ public class Function {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public Instant getCreatedAt() {

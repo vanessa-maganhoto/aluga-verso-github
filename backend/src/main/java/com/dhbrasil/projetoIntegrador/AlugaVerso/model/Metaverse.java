@@ -18,6 +18,8 @@ public class Metaverse {
     private Integer id;
     private String name;
 
+    private String imagemUrl;
+
     @OneToMany(mappedBy = "metaverse")
     Set<Land> land = new HashSet<>();
 
@@ -35,9 +37,10 @@ public class Metaverse {
 
     public Metaverse(){}
 
-    public Metaverse(Integer id, String name) {
+    public Metaverse(Integer id, String name, String imagemUrl) {
         this.id = id;
         this.name = name;
+        this.imagemUrl = imagemUrl;
     }
 
     public Integer getId() {
@@ -54,6 +57,14 @@ public class Metaverse {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImagemUrl() {
+        return imagemUrl;
+    }
+
+    public void setImagemUrl(String imagemUrl) {
+        this.imagemUrl = imagemUrl;
     }
 
     public Instant getCreatedAt() {

@@ -1,5 +1,6 @@
 package com.dhbrasil.projetoIntegrador.AlugaVerso.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
@@ -17,13 +18,13 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant startTime;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT-3")
     private Date dateInitial;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT-3")
     private Date dateFinal;
     @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "land_id")
@@ -43,12 +44,11 @@ public class Reservation {
 
     public Reservation(){}
 
-    public Reservation(Integer id, Instant startTime, Date dateInitial, Date dateFinal, Client client, Land land) {
+    public Reservation(Integer id, Date dateInitial, Date dateFinal, User user, Land land) {
         this.id = id;
-        this.startTime = startTime;
         this.dateInitial = dateInitial;
         this.dateFinal = dateFinal;
-        this.client = client;
+        this.user = user;
         this.land = land;
     }
 
@@ -60,13 +60,6 @@ public class Reservation {
         this.id = id;
     }
 
-    public Instant getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Instant startTime) {
-        this.startTime = startTime;
-    }
 
     public Date getDateInitial() {
         return dateInitial;
@@ -84,12 +77,12 @@ public class Reservation {
         this.dateFinal = dateFinal;
     }
 
-    public Client getClient() {
-        return client;
+    public User getUser() {
+        return user;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Land getLand() {
@@ -144,11 +137,9 @@ public class Reservation {
     public String toString() {
         return "Reservation{" +
                 "id=" + id +
-                ", startTime=" + startTime +
                 ", dateInitial=" + dateInitial +
                 ", dateFinal=" + dateFinal +
-                ", client=" + client +
-                ", land=" + land +
+                ", user=" + user +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 ", deleted=" + deleted +

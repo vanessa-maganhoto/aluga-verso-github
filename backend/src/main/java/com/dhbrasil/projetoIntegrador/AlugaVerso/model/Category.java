@@ -1,5 +1,6 @@
 package com.dhbrasil.projetoIntegrador.AlugaVerso.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
@@ -20,6 +21,7 @@ public class Category {
     private String imagemUrl;
     private String description;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
     Set<Land> land = new HashSet<>();
 

@@ -6,7 +6,9 @@ import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Land;
 import com.dhbrasil.projetoIntegrador.AlugaVerso.repository.CategoryRepository;
 import com.dhbrasil.projetoIntegrador.AlugaVerso.repository.ImagesRepository;
 import com.dhbrasil.projetoIntegrador.AlugaVerso.repository.LandRepository;
+import com.dhbrasil.projetoIntegrador.AlugaVerso.service.exceptions.DatabaseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -69,6 +72,9 @@ public class LandService {
         } catch (EmptyResultDataAccessException e){
             throw new ResponseStatusException(NOT_FOUND, "Terreno nâo encontrada: "+id);
         }
+        catch (DataIntegrityViolationException e) {
+            throw new DatabaseException("Integrity violation");
+        }
     }
 
     //Atualizar terreno
@@ -105,6 +111,15 @@ public class LandService {
         return landRepository.findByCategoryId(idCategory)
                 .stream()
                 .map(p -> new LandDTO(p))
+                .collect(Collectors.toList());
+    }
+
+    // Filtro por cidade e intervalo de data
+    @Transactional(readOnly = true)
+    public List<LandDTO> findByMetaverseAndReservationDates(String metaverse, Date initialDate, Date endDate){
+        return landRepository.findByMetaverseAndReservationDates(metaverse, initialDate, endDate)
+                .stream()
+                .map(land -> new LandDTO(land))
                 .collect(Collectors.toList());
     }
 }

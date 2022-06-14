@@ -2,6 +2,7 @@ package com.dhbrasil.projetoIntegrador.AlugaVerso.dto;
 
 import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Land;
 
+import javax.validation.constraints.Positive;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class LandDTO {
     private String description;
     private String localizationX;
     private String localizationY;
+    @Positive(message = "Preço deve ser um valor positivo")
     private Double price;
 
     private List<ImagesDTO> images = new ArrayList<>();

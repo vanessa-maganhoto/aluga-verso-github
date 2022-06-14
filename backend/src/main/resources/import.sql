@@ -3,8 +3,8 @@ INSERT INTO category (id, name, imagem_Url, description, created_At, deleted) VA
 INSERT INTO category (id, name, imagem_Url, description, created_At, deleted) VALUES (default, 'Divulgação', 'https://cdn.discordapp.com/attachments/976896514699976815/981173219396575282/unknown.jpg', 'Faça parte do futuro e garanta o seu ponto de divulgação nos pontos mais valorizados do metaverso.', NOW(), FALSE);
 INSERT INTO category (id, name, imagem_Url, description, created_At, deleted) VALUES (default, 'Lazer e recreação', 'https://cdn.discordapp.com/attachments/976896514699976815/976896617246490654/1440x810_cmsv2_e07d6986-7d96-5d7f-a495-a46f85730765-6447250.jpg', 'Esteja um passo a frente ao participar e interagir nos espaços culturais destinados ao lazer e recreação. Divirta-se nas áreas esportivas. Fique por dentro das exposições dos NFTs', NOW(), FALSE);
 
-INSERT INTO metaverse (id, name, created_At, deleted) VALUES (default, 'Decentraland', NOW(), FALSE);
-INSERT INTO metaverse (id, name, created_At, deleted) VALUES (default, 'Sandbox', NOW(), FALSE);
+INSERT INTO metaverse (id, name, imagem_Url, created_At, deleted) VALUES (default, 'Decentraland', 'https://cdn.discordapp.com/attachments/976896514699976815/984124121266941952/metaverse-decentraland.png', NOW(), FALSE);
+INSERT INTO metaverse (id, name, imagem_Url, created_At, deleted) VALUES (default, 'Sandbox', 'https://cdn.discordapp.com/attachments/976896514699976815/984124137230458880/metaverse-sandbox.png', NOW(), FALSE);
 
 INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Ícone olho para usar como alta procura', 'https://cdn.discordapp.com/attachments/97689651469…7464/visible_eye_vision_view_look_icon_196564.svg', NOW(), FALSE);
 INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Ícone para usar quando o terreno for próximo ao comércio', 'https://cdn.discordapp.com/attachments/976896514699976815/981183276263825418/carrinho-de-compras-comercio.svg', NOW(), FALSE);
@@ -33,6 +33,12 @@ INSERT INTO land (id, name, description, localizationX, localizationY, price, ca
 INSERT INTO land (id, name, description, localizationX, localizationY, price, category_id, metaverse_id, created_At, deleted) VALUES (default, 'Faça a melhor festa no metaverso', ' Área cercada de atividades culturais. Terreno privilegiado.', '144', '-107', 1088.0, 2, 2, NOW(), FALSE);
 INSERT INTO land (id, name, description, localizationX, localizationY, price, category_id, metaverse_id, created_At, deleted) VALUES (default, 'Encontre a diversão perfeita', ' Ambiente ideal para relaxar e descontrair. Aproveite o point do momento para fazer amigos e diversão. ', '190', '55', 1012.0, 4, 2, NOW(), FALSE);
 INSERT INTO land (id, name, description, localizationX, localizationY, price, category_id, metaverse_id, created_At, deleted) VALUES (default, 'Estrutura projetada e pensada para realizar casamentos', 'Neste pedaço digital você conta com a estrutura projetada para celebrar cerimônias de casamento. Ambiente com decoração neutra e sem menção religiosa na decoração.', '-64', '190', 688.0, 1, 2, NOW(), FALSE);
+INSERT INTO land (id, name, description, localizationX, localizationY, price, category_id, metaverse_id, created_At, deleted) VALUES (default, 'Parcel', 'Oportunidade para expandir seus negócios no metaverso. Terreno em área de franco crescimento. Local para realizar inesquecíveis shows e festas memoráveis.', '-51', '-111', 709.0, 2, 1, NOW(), FALSE);
+INSERT INTO land (id, name, description, localizationX, localizationY, price, category_id, metaverse_id, created_At, deleted) VALUES (default, 'Genesis Park', 'Aproveite o amplo espaço desenhado e construído para atividades de lazer, esportivas e recreativas. Complexo esportivo para prática de esportes compatíveis com o mundo digital.', '-26', '-4', 829.0, 4, 1, NOW(), FALSE);
+INSERT INTO land (id, name, description, localizationX, localizationY, price, category_id, metaverse_id, created_At, deleted) VALUES (default, 'Estate near Fashion', 'Terreno duplo localizado próximo a comércios. Área em rápido crescimento. Aproveite a oportunidade para divulgar seu negócio.', '-119', '-25', 1100.0, 3, 1, NOW(), FALSE);
+INSERT INTO land (id, name, description, localizationX, localizationY, price, category_id, metaverse_id, created_At, deleted) VALUES (default, 'Arena Shows ', 'Confirme sua presença na estreia da Arena Shows. Espaço projetado para proporcionar as melhores experiências para os fãs de shows no metaverso. Preço promocional de inauguração.', '-21', '37', 559.0, 2, 1, NOW(), FALSE);
+INSERT INTO land (id, name, description, localizationX, localizationY, price, category_id, metaverse_id, created_At, deleted) VALUES (default, 'Street Land', 'Já imaginou a criançada no metaverso? Essa oportunidade chegou. Venha conhecer o ambiente planejado para que a garotada experimente o futuro.', '-100', '-21', 1209.0, 4, 1, NOW(), FALSE);
+INSERT INTO land (id, name, description, localizationX, localizationY, price, category_id, metaverse_id, created_At, deleted) VALUES (default, 'Wedding Party', 'Venha desbravar o metaverso. Inove realizando o seu casamento neste terreno.', '-125', '-67', 619.0, 1, 1, NOW(), FALSE);
 
 --Land ID 1 - casamento
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Espaço para eventos formais ideal para casamento', 'https://cdn.discordapp.com/attachments/981230317392240701/981236184682487888/parcel.png', 1, NOW(), FALSE);
@@ -51,18 +57,17 @@ INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (defaul
 
 --Land ID 3 - divulgação
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Divulgue já!', 'https://cdn.discordapp.com/attachments/981230317392240701/981240450671345684/vegas-city.png', 3, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem Decentraland genérica ', 'https://cdn.discordapp.com/attachments/981260096631885844/981260167788261376/divulgacao-decentraland.jpeg', 3, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260199312638012/divulgacao-geral-1.jpeg', 3, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260227385098320/divulgacao-geral-2.jpeg', 3, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260248818024538/divulgacao-geral-3.jpeg', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica divulgação ', 'https://cdn.discordapp.com/attachments/981260096631885844/984078036381106236/Captura_de_Tela_2022-06-08_as_09.54.43.png', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260199312638012/divulgacao-geral-1.jpeg', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260227385098320/divulgacao-geral-2.jpeg', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260248818024538/divulgacao-geral-3.jpeg', 3, NOW(), FALSE);
 
 --Land ID 4 - divulgação
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Amplo terreno para divulgar e promover a sua marca.', 'https://cdn.discordapp.com/attachments/981230317392240701/981242111015927899/on-road-opposite.png', 4, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem Decentraland genérica ', 'https://cdn.discordapp.com/attachments/981260096631885844/981260167788261376/divulgacao-decentraland.jpeg', 4, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260199312638012/divulgacao-geral-1.jpeg', 4, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260227385098320/divulgacao-geral-2.jpeg', 4, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260248818024538/divulgacao-geral-3.jpeg', 4, NOW(), FALSE);
-
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica divulgação ', 'https://cdn.discordapp.com/attachments/981260096631885844/984078036381106236/Captura_de_Tela_2022-06-08_as_09.54.43.png', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260199312638012/divulgacao-geral-1.jpeg', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260227385098320/divulgacao-geral-2.jpeg', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260248818024538/divulgacao-geral-3.jpeg', 3, NOW(), FALSE);
 --Land ID 5 - lazer e recreação
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Promova atividades culturais e recreativas neste terreno raro.', 'https://cdn.discordapp.com/attachments/981230317392240701/981244619318767616/Super-Rare-2x1.png', 5, NOW(), FALSE);
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica lazer e recreação', 'https://cdn.discordapp.com/attachments/981261626302931054/981262171461795870/lazer-e-recreacao-1.jpeg', 5, NOW(), FALSE);
@@ -86,10 +91,10 @@ INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (defaul
 
 --Land ID 8 - divulgação
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Raridade para a divulgação de marcas.', 'https://cdn.discordapp.com/attachments/981230317392240701/981250412290134046/rare.png', 8, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem Decentraland genérica ', 'https://cdn.discordapp.com/attachments/981260096631885844/981260167788261376/divulgacao-decentraland.jpeg', 8, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260199312638012/divulgacao-geral-1.jpeg', 8, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260227385098320/divulgacao-geral-2.jpeg', 8, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260248818024538/divulgacao-geral-3.jpeg', 8, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica divulgação ', 'https://cdn.discordapp.com/attachments/981260096631885844/984078036381106236/Captura_de_Tela_2022-06-08_as_09.54.43.png', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260199312638012/divulgacao-geral-1.jpeg', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260227385098320/divulgacao-geral-2.jpeg', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260248818024538/divulgacao-geral-3.jpeg', 3, NOW(), FALSE);
 
 --Land ID 9 - festa e show
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Amplo espaço para a realização de festas e shows.', 'https://cdn.discordapp.com/attachments/981230317392240701/981252022617653398/3-parcel-state.png', 9, NOW(), FALSE);
@@ -101,9 +106,10 @@ INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (defaul
 
 --Land ID 10 - divulgação
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Ótima opção para investimento', 'https://cdn.discordapp.com/attachments/981881034658439259/981881229219627048/1.png', 10, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260199312638012/divulgacao-geral-1.jpeg', 10, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260227385098320/divulgacao-geral-2.jpeg', 10, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260248818024538/divulgacao-geral-3.jpeg', 10, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica divulgação ', 'https://cdn.discordapp.com/attachments/981260096631885844/984078036381106236/Captura_de_Tela_2022-06-08_as_09.54.43.png', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260199312638012/divulgacao-geral-1.jpeg', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260227385098320/divulgacao-geral-2.jpeg', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260248818024538/divulgacao-geral-3.jpeg', 3, NOW(), FALSE);
 
 --Land ID 11 - casamento
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Ambiente para casamento', 'https://cdn.discordapp.com/attachments/981881034658439259/981883088634249256/2.png', 11, NOW(), FALSE);
@@ -137,9 +143,10 @@ INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (defaul
 
 --Land ID 15 - divulgação
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Badalado terreno para divulgar seu negócio.', 'https://cdn.discordapp.com/attachments/981881034658439259/981972359143632896/unknown.png', 15, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260199312638012/divulgacao-geral-1.jpeg', 15, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260227385098320/divulgacao-geral-2.jpeg', 15, NOW(), FALSE);
-INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260248818024538/divulgacao-geral-3.jpeg', 15, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica divulgação ', 'https://cdn.discordapp.com/attachments/981260096631885844/984078036381106236/Captura_de_Tela_2022-06-08_as_09.54.43.png', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260199312638012/divulgacao-geral-1.jpeg', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260227385098320/divulgacao-geral-2.jpeg', 3, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260248818024538/divulgacao-geral-3.jpeg', 3, NOW(), FALSE);
 
 --Land ID 16 - casamento
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Seu casamento é aqui', 'https://cdn.discordapp.com/attachments/981881034658439259/982237787468230707/unknown.png', 16, NOW(), FALSE);
@@ -176,3 +183,73 @@ INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (defaul
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica casamento', 'https://cdn.discordapp.com/attachments/981254612520693850/981256462884016178/casamento-2.jpeg', 20, NOW(), FALSE);
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica casamento', 'https://cdn.discordapp.com/attachments/981254612520693850/981256484769918976/casamento-3.jpeg', 20, NOW(), FALSE);
 INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica casamento', 'https://cdn.discordapp.com/attachments/981254612520693850/981256499428999248/casamento-4.jpeg', 20, NOW(), FALSE);
+
+--Land ID 21 - festa e show
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Parcel', 'https://cdn.discordapp.com/attachments/981230317392240701/984126650738430052/unknown.png', 21, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica festa e shows', 'https://cdn.discordapp.com/attachments/981257684303114270/981257826133508117/festa-e-show-1.jpeg', 21, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica festa e shows', 'https://cdn.discordapp.com/attachments/981257684303114270/981257846035464302/festa-e-show-2.jpeg', 21, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica festa e shows', 'https://cdn.discordapp.com/attachments/981257684303114270/981257869796179978/festa-e-show-3.jpeg', 21, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica festa e shows', 'https://cdn.discordapp.com/attachments/981257684303114270/981257884367216660/festa-e-show-4.jpeg', 21, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 5 generica festa e shows', 'https://cdn.discordapp.com/attachments/981257684303114270/981257898925649980/festa-e-show-5.jpeg', 21, NOW(), FALSE);
+
+--Land ID 22 - lazer e recreação
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Genesis Park', 'https://cdn.discordapp.com/attachments/981230317392240701/984128983320911982/unknown.pngg', 22, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica lazer e recreação', 'https://cdn.discordapp.com/attachments/981261626302931054/981262171461795870/lazer-e-recreacao-1.jpeg', 22, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica lazer e recreação.', 'https://cdn.discordapp.com/attachments/981261626302931054/981262194903769088/lazer-e-recreacao-2.jpeg', 22, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica lazer e recreação', 'https://cdn.discordapp.com/attachments/981261626302931054/981262229125095512/lazer-e-recreacao-3.jpeg', 22, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica lazer e recreação', 'https://cdn.discordapp.com/attachments/981261626302931054/981262265317736508/lazer-e-recreacao-4.jpeg', 22, NOW(), FALSE);
+
+--Land ID 23 - divulgação
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Estate near Fashion', 'https://cdn.discordapp.com/attachments/981230317392240701/984131001049579571/unknown.png', 23, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica divulgação ', 'https://cdn.discordapp.com/attachments/981260096631885844/984078036381106236/Captura_de_Tela_2022-06-08_as_09.54.43.png', 23, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260199312638012/divulgacao-geral-1.jpeg', 23, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260227385098320/divulgacao-geral-2.jpeg', 23, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica divulgação', 'https://cdn.discordapp.com/attachments/981260096631885844/981260248818024538/divulgacao-geral-3.jpeg', 23, NOW(), FALSE);
+
+--Land ID 24 - festa e show
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Arena Shows', 'https://cdn.discordapp.com/attachments/981230317392240701/984132838246977616/unknown.png', 24, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica festa e shows', 'https://cdn.discordapp.com/attachments/981257684303114270/981257826133508117/festa-e-show-1.jpeg', 24, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica festa e shows', 'https://cdn.discordapp.com/attachments/981257684303114270/981257846035464302/festa-e-show-2.jpeg', 24, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica festa e shows', 'https://cdn.discordapp.com/attachments/981257684303114270/981257869796179978/festa-e-show-3.jpeg', 24, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica festa e shows', 'https://cdn.discordapp.com/attachments/981257684303114270/981257884367216660/festa-e-show-4.jpeg', 24, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 5 generica festa e shows', 'https://cdn.discordapp.com/attachments/981257684303114270/981257898925649980/festa-e-show-5.jpeg', 24, NOW(), FALSE);
+
+--Land ID 25 - lazer e recreação
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Street Land', 'https://cdn.discordapp.com/attachments/981230317392240701/984133857492234250/unknown.png', 25, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica lazer e recreação', 'https://cdn.discordapp.com/attachments/981261626302931054/981262171461795870/lazer-e-recreacao-1.jpeg', 25, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica lazer e recreação.', 'https://cdn.discordapp.com/attachments/981261626302931054/981262194903769088/lazer-e-recreacao-2.jpeg', 25, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica lazer e recreação', 'https://cdn.discordapp.com/attachments/981261626302931054/981262229125095512/lazer-e-recreacao-3.jpeg', 25, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica lazer e recreação', 'https://cdn.discordapp.com/attachments/981261626302931054/981262265317736508/lazer-e-recreacao-4.jpeg', 25, NOW(), FALSE);
+
+--Land ID 26 - casamento
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Wedding Party', 'https://cdn.discordapp.com/attachments/981230317392240701/984135324856905728/unknown.png', 26, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 1 generica casamento', 'https://cdn.discordapp.com/attachments/981254612520693850/981256436485075034/casamento-1.jpeg', 26, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 2 generica casamento', 'https://cdn.discordapp.com/attachments/981254612520693850/981256462884016178/casamento-2.jpeg', 26, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 3 generica casamento', 'https://cdn.discordapp.com/attachments/981254612520693850/981256484769918976/casamento-3.jpeg', 26, NOW(), FALSE);
+INSERT INTO images (id, title, url, land_id, created_At, deleted) VALUES (default, 'Imagem 4 generica casamento', 'https://cdn.discordapp.com/attachments/981254612520693850/981256499428999248/casamento-4.jpeg', 26, NOW(), FALSE);
+
+-- Role
+INSERT INTO role (id, name, created_At, deleted) VALUES (default, 'ROLE_ADMIN', NOW(), FALSE);
+INSERT INTO role (id, name, created_At, deleted) VALUES (default, 'ROLE_CLIENT', NOW(), FALSE);
+
+-- User tb_user
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Teodoro', 'Alves', 'teodoro@gmail.com', '$2a$10$4ufkF5lZc7PMAGs6ZkTTY.Y4D//byHdRjaWeeQ61tjjFM4DYSnIxW',NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'A', 'A', 'a@gmail.com', '$2a$10$4ufkF5lZc7PMAGs6ZkTTY.Y4D//byHdRjaWeeQ61tjjFM4DYSnIxW',  NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'B', 'B', 'b@gmail.com', '$2a$10$4ufkF5lZc7PMAGs6ZkTTY.Y4D//byHdRjaWeeQ61tjjFM4DYSnIxW',  NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'C', 'C', 'c@gmail.com', '$2a$10$4ufkF5lZc7PMAGs6ZkTTY.Y4D//byHdRjaWeeQ61tjjFM4DYSnIxW',  NOW(), FALSE);
+
+-- tb_user_role
+INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (4, 2);
+
+-- Reservation
+INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created_At, deleted) VALUES  (default, '2022-05-05', '2022-05-10 23:59:59', 1, 1, NOW(), FALSE);
+INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created_At, deleted) VALUES  (default, '2022-05-06', '2022-05-11 23:59:59', 1, 20, NOW(), FALSE);
+INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created_At, deleted) VALUES  (default, '2022-05-07', '2022-05-12 23:59:59', 2, 5, NOW(), FALSE);
+INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created_At, deleted) VALUES  (default, '2022-05-08', '2022-05-13 23:59:59', 3, 16, NOW(), FALSE);
+INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created_At, deleted) VALUES  (default, '2022-05-09', '2022-05-14 23:59:59', 3, 4, NOW(), FALSE);
+INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created_At, deleted) VALUES  (default, '2022-05-10', '2022-05-15 23:59:59', 4, 1, NOW(), FALSE);
+INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created_At, deleted) VALUES  (default, '2022-05-11', '2022-05-16 23:59:59', 4, 1, NOW(), FALSE);

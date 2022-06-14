@@ -3,25 +3,30 @@ package com.dhbrasil.projetoIntegrador.AlugaVerso.dto;
 
 import com.dhbrasil.projetoIntegrador.AlugaVerso.model.User;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class UserDTO {
 
     private Integer id;
+    @NotBlank(message = "Campo obrigatório")
     private String name;
     private String lastName;
+    @Email(message = "Favor entrar um email válido")
     private String email;
-    private String password;
-
-    private FunctionDTO function;
+    List<RoleDTO> roles = new ArrayList<>();
 
     public UserDTO(){}
 
-    public UserDTO(Integer id, String name, String lastName, String email, String password, FunctionDTO function) {
+    public UserDTO(Integer id, String name, String lastName, String email) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
-        this.function = function;
     }
 
     public UserDTO(User user){
@@ -29,12 +34,17 @@ public class UserDTO {
         name = user.getName();
         lastName = user.getLastName();
         email = user.getEmail();
-        password = user.getPassword();
-        function = new FunctionDTO(user.getFunction());
+        user.getRoles().forEach(role -> this.roles.add(new RoleDTO(role)));
     }
 
     public User toEntity(){
-        return new User(this.id, this.name, this.lastName, this.email, this.password, this.function.toEntity());
+        User user = new User();
+        user.setId(this.id);
+        user.setName(this.name);
+        user.setLastName(this.lastName);
+        user.setEmail(this.email);
+        this.roles.forEach(role -> user.getRoles().add(role.toEntity()));
+        return user;
     }
 
     public Integer getId() {
@@ -69,19 +79,7 @@ public class UserDTO {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public FunctionDTO getFunction() {
-        return function;
-    }
-
-    public void setFunction(FunctionDTO function) {
-        this.function = function;
+    public List<RoleDTO> getRoles() {
+        return roles;
     }
 }

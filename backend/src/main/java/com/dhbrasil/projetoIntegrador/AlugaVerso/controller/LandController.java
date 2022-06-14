@@ -12,7 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -27,7 +29,7 @@ public class LandController {
 
     //Cadastrar terreno
     @PostMapping
-    public ResponseEntity<LandDTO> createdLand(@RequestBody LandDTO dto) {
+    public ResponseEntity<LandDTO> createdLand(@Valid @RequestBody LandDTO dto) {
         Integer id  = landService.insert(dto);
         LandDTO landDTO = new LandDTO(landRepository.findById(id).get());
 
@@ -40,7 +42,7 @@ public class LandController {
     @GetMapping
     public ResponseEntity<Page<LandDTO>> findAllPaged(
             @RequestParam(value = "page", defaultValue = "0") Integer page,
-            @RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
+            @RequestParam(value = "linesPerPage", defaultValue = "8") Integer linesPerPage,
             @RequestParam(value = "direction", defaultValue = "ASC") String direction,
             @RequestParam(value = "orderBy", defaultValue = "name") String orderBy
 
@@ -51,7 +53,7 @@ public class LandController {
         return ResponseEntity.ok().body(list);
     }
 
-    //Listar todas as cidades
+    //Listar todas os terrenos
 //    @GetMapping
 //   public ResponseEntity<List<LandDTO>> listLand(){
 //       List<LandDTO> list = landService.findAll();
@@ -74,7 +76,7 @@ public class LandController {
 
     //Atualizar terreno
     @PutMapping(value = "/{id}")
-    public ResponseEntity<LandDTO> updateLand(@PathVariable Integer id, @RequestBody LandDTO dto) {
+    public ResponseEntity<LandDTO> updateLand( @PathVariable Integer id, @Valid @RequestBody LandDTO dto) {
         dto.setId(id);
         LandDTO obj = landService.update(dto);
         return ResponseEntity.ok().body(obj);
@@ -91,5 +93,12 @@ public class LandController {
         return landService.listByCategory(idCategory);
     }
 
+    // Filtro por cidade e intervalo de data
+    @GetMapping(value = "/search")
+    public List<LandDTO> findByMetaverseAndReservationDates(@RequestParam("metaverseName") String metaverseName,
+                                                            @RequestParam("initialDate") Date initialDate,
+                                                            @RequestParam("endDate") Date endDate){
+        return landService.findByMetaverseAndReservationDates(metaverseName, initialDate, endDate);
+    }
 }
 

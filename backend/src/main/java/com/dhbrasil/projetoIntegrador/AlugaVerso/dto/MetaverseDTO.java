@@ -7,20 +7,25 @@ public class MetaverseDTO {
     private Integer id;
     private String name;
 
+    private String imagemUrl;
+
     public MetaverseDTO(){}
 
-    public MetaverseDTO(Integer id, String name) {
+    public MetaverseDTO(Integer id, String name, String imagemUrl) {
         this.id = id;
         this.name = name;
+        this.imagemUrl = imagemUrl;
     }
 
     public Metaverse toEntity(){
-        return new Metaverse(this.id, this.name);
+
+        return new Metaverse(this.id, this.name, this.imagemUrl);
     }
 
     public MetaverseDTO(Metaverse metaverse){
         this.id = metaverse.getId();
         this.name = metaverse.getName();
+        this.imagemUrl = metaverse.getImagemUrl();
     }
 
     public Integer getId() {
@@ -39,4 +44,11 @@ public class MetaverseDTO {
         this.name = name;
     }
 
+    public String getImagemUrl() {
+        return imagemUrl;
+    }
+
+    public void setImagemUrl(String imagemUrl) {
+        this.imagemUrl = imagemUrl;
+    }
 }
