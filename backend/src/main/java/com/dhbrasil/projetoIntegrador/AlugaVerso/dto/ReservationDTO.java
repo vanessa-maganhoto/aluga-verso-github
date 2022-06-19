@@ -5,6 +5,8 @@ import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Reservation;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class ReservationDTO {
@@ -15,7 +17,7 @@ public class ReservationDTO {
 
     private Date dateFinal;
     private UserDTO user;
-    private LandDTO land;
+    private LandResponseDTO land;
 
     public ReservationDTO(){}
 
@@ -24,7 +26,7 @@ public class ReservationDTO {
         dateInitial = reservation.getDateInitial();
         dateFinal = reservation.getDateFinal();
         user = new UserDTO(reservation.getUser());
-        //land = new LandDTO(reservation.getLand());// este campo estava comentado por algum motivo
+        land = new LandResponseDTO(reservation.getLand());// este campo estava comentado por algum motivo
     }
 
     public Reservation toEntity(){
@@ -69,11 +71,11 @@ public class ReservationDTO {
         this.user = user;
     }
 
-    public LandDTO getLand() {
+    public LandResponseDTO getLand() {
         return land;
     }
 
-    public void setLand(LandDTO land) {
+    public void setLand(LandResponseDTO land) {
         this.land = land;
     }
 }

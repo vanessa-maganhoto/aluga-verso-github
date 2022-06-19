@@ -83,10 +83,15 @@ public class ReservationController {
     }
 
     //Filtrar reservas por id de usuário
-    @GetMapping(value = "/filter")
+    @GetMapping(value = "/filter/user")
     public List<ReservationDTO> findyAllUser(@RequestParam Integer idUser){
         return reservationService.findyAllUser(idUser);
     }
 
+    // Filtro de reservas por id de terreno
+    @GetMapping(value = "/filter/lands")
+    public List<ReservationDTO> findAllByLands(@RequestParam Integer idLand){
+        return  reservationService.findAllByLands(idLand);
+    }
 }
 
