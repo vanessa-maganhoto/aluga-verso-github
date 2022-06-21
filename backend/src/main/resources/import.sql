@@ -6,12 +6,12 @@ INSERT INTO category (id, name, imagem_Url, description, created_At, deleted) VA
 INSERT INTO metaverse (id, name, imagem_Url, created_At, deleted) VALUES (default, 'Decentraland', 'https://cdn.discordapp.com/attachments/976896514699976815/984124121266941952/metaverse-decentraland.png', NOW(), FALSE);
 INSERT INTO metaverse (id, name, imagem_Url, created_At, deleted) VALUES (default, 'Sandbox', 'https://cdn.discordapp.com/attachments/976896514699976815/984124137230458880/metaverse-sandbox.png', NOW(), FALSE);
 
-INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Ícone olho para usar como alta procura', 'https://cdn.discordapp.com/attachments/97689651469…7464/visible_eye_vision_view_look_icon_196564.svg', NOW(), FALSE);
-INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Ícone para usar quando o terreno for próximo ao comércio', 'https://cdn.discordapp.com/attachments/976896514699976815/981183276263825418/carrinho-de-compras-comercio.svg', NOW(), FALSE);
-INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Ícone representativo a comprimento', 'https://cdn.discordapp.com/attachments/976896514699976815/981183832017498182/regua-comprimento.svg', NOW(), FALSE);
-INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Ícone para cancelamento gratuito', 'https://cdn.discordapp.com/attachments/976896514699976815/981184521787559998/cancelamento-gratuito.svg', NOW(), FALSE);
-INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Ícone atividades culturais', 'https://cdn.discordapp.com/attachments/976896514699976815/981184936054759424/atividades-culturais.svg', NOW(), FALSE);
-INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Ícone eventos formais', 'https://cdn.discordapp.com/attachments/976896514699976815/981185247221788722/eventos-formais.svg', NOW(), FALSE);
+INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Alta procura', 'https://cdn.discordapp.com/attachments/97689651469…7464/visible_eye_vision_view_look_icon_196564.svg', NOW(), FALSE);
+INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Próximo ao comércio', 'https://cdn.discordapp.com/attachments/976896514699976815/981183276263825418/carrinho-de-compras-comercio.svg', NOW(), FALSE);
+INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Dimensão', 'https://cdn.discordapp.com/attachments/976896514699976815/981183832017498182/regua-comprimento.svg', NOW(), FALSE);
+INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Cancelamento gratuito', 'https://cdn.discordapp.com/attachments/976896514699976815/981184521787559998/cancelamento-gratuito.svg', NOW(), FALSE);
+INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Atividades culturais', 'https://cdn.discordapp.com/attachments/976896514699976815/981184936054759424/atividades-culturais.svg', NOW(), FALSE);
+INSERT INTO attributes (id, name, icon, created_At, deleted) VALUES (default, 'Eventos formais', 'https://cdn.discordapp.com/attachments/976896514699976815/981185247221788722/eventos-formais.svg', NOW(), FALSE);
 
 INSERT INTO land (id, name, description, localizationX, localizationY, price, category_id, metaverse_id, created_At, deleted) VALUES (default, 'Espaço para eventos formais ideal para casamento', 'Terreno bem localizado e próprio para eventos formais, principalmente, casamentos.', '-117', '-24', 1002.0, 1, 1, NOW(), FALSE);
 INSERT INTO land (id, name, description, localizationX, localizationY, price, category_id, metaverse_id, created_At, deleted) VALUES (default, 'Fun', 'Espaço destinado para festas e shows..', '-70', '28', 937.0, 2, 1, NOW(), FALSE);
@@ -272,6 +272,5 @@ INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created
 INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created_At, deleted) VALUES  (default, '2022-05-10', '2022-05-15', 4, 1, NOW(), FALSE);
 INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created_At, deleted) VALUES  (default, '2022-05-11', '2022-05-16', 4, 1, NOW(), FALSE);
 
---select reservatio2_.* from reservation reservatio2_ where ( reservatio2_.deleted=false) and ('2022-05-05'>=reservatio2_.date_initial and '2022-05-05'<=reservatio2_.date_final or '2022-05-06'>=reservatio2_.date_initial and '2022-05-06'<=reservatio2_.date_final)
 
 
