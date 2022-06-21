@@ -233,17 +233,35 @@ INSERT INTO role (id, name, created_At, deleted) VALUES (default, 'ROLE_ADMIN', 
 INSERT INTO role (id, name, created_At, deleted) VALUES (default, 'ROLE_CLIENT', NOW(), FALSE);
 
 -- User tb_user
-INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Teodoro', 'Alves', 'teodoro@gmail.com', '$2a$10$4ufkF5lZc7PMAGs6ZkTTY.Y4D//byHdRjaWeeQ61tjjFM4DYSnIxW',NOW(), FALSE);
-INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'A', 'A', 'a@gmail.com', '$2a$10$4ufkF5lZc7PMAGs6ZkTTY.Y4D//byHdRjaWeeQ61tjjFM4DYSnIxW',  NOW(), FALSE);
-INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'B', 'B', 'b@gmail.com', '$2a$10$4ufkF5lZc7PMAGs6ZkTTY.Y4D//byHdRjaWeeQ61tjjFM4DYSnIxW',  NOW(), FALSE);
-INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'C', 'C', 'c@gmail.com', '$2a$10$4ufkF5lZc7PMAGs6ZkTTY.Y4D//byHdRjaWeeQ61tjjFM4DYSnIxW',  NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Teodoro', 'Alves', 'teodoro@gmail.com', '$2a$10$chi5SYpmIHDWpjF23zYaUu6KH7lwxG34jIKu0HvEeKt0dF/1dbxDa',NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Alice', 'Silveira', 'alice@gmail.com', '$2a$10$chi5SYpmIHDWpjF23zYaUu6KH7lwxG34jIKu0HvEeKt0dF/1dbxDa',  NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Berenice', 'Siqueira', 'b@gmail.com', '$2a$10$chi5SYpmIHDWpjF23zYaUu6KH7lwxG34jIKu0HvEeKt0dF/1dbxDa',  NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Camila', 'Antunes', 'c@gmail.com', '$2a$10$chi5SYpmIHDWpjF23zYaUu6KH7lwxG34jIKu0HvEeKt0dF/1dbxDa',  NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Andre', 'Padilha', 'padilha@gmail.com', '$2a$10$chi5SYpmIHDWpjF23zYaUu6KH7lwxG34jIKu0HvEeKt0dF/1dbxDa',NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Marcia', 'Yano', 'yurimarcia@yahoo.com.br', '$2a$10$chi5SYpmIHDWpjF23zYaUu6KH7lwxG34jIKu0HvEeKt0dF/1dbxDa',NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Renan', 'Joaquim', 'renan.aj94@gmail.com', '$2a$10$chi5SYpmIHDWpjF23zYaUu6KH7lwxG34jIKu0HvEeKt0dF/1dbxDa',NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Jehan', 'Ribeiro', 'jehanl.ribeiro@gmail.com', '$2a$10$chi5SYpmIHDWpjF23zYaUu6KH7lwxG34jIKu0HvEeKt0dF/1dbxDa',NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Matheus', 'Braga', 'matheusbragaprofissional@gmail.com', '$2a$10$chi5SYpmIHDWpjF23zYaUu6KH7lwxG34jIKu0HvEeKt0dF/1dbxDa',NOW(), FALSE);
+INSERT INTO tb_user (id, name, last_name, email, password, created_At, deleted) VALUES (default, 'Vanessa', 'Matos', 'vanessammaganhoto@gmail.com', '$2a$10$chi5SYpmIHDWpjF23zYaUu6KH7lwxG34jIKu0HvEeKt0dF/1dbxDa',NOW(), FALSE);
 
 -- tb_user_role
-INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (4, 2);
+--Usuários do grupo. Todos são ADMIN e CLIENT
+INSERT INTO tb_user_role (user_id, role_id) VALUES (5, 1); -- André
+INSERT INTO tb_user_role (user_id, role_id) VALUES (5, 2); -- André
+INSERT INTO tb_user_role (user_id, role_id) VALUES (6, 1); -- Marcia
+INSERT INTO tb_user_role (user_id, role_id) VALUES (6, 2); -- Marcia
+INSERT INTO tb_user_role (user_id, role_id) VALUES (7, 1); -- Renan
+INSERT INTO tb_user_role (user_id, role_id) VALUES (7, 2); -- Renan
+INSERT INTO tb_user_role (user_id, role_id) VALUES (8, 1); -- Jehan
+INSERT INTO tb_user_role (user_id, role_id) VALUES (8, 2); -- Jehan
+INSERT INTO tb_user_role (user_id, role_id) VALUES (9, 1); -- Matheus
+INSERT INTO tb_user_role (user_id, role_id) VALUES (9, 2); -- Matheus
+INSERT INTO tb_user_role (user_id, role_id) VALUES (10, 1); -- Vanessa
+INSERT INTO tb_user_role (user_id, role_id) VALUES (10, 2); -- Vanessa
 
 -- Reservation
 INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created_At, deleted) VALUES  (default, '2022-05-05', '2022-05-10', 1, 1, NOW(), FALSE);
@@ -257,10 +275,3 @@ INSERT INTO reservation (id, date_initial, date_final, user_id, land_id, created
 --select reservatio2_.* from reservation reservatio2_ where ( reservatio2_.deleted=false) and ('2022-05-05'>=reservatio2_.date_initial and '2022-05-05'<=reservatio2_.date_final or '2022-05-06'>=reservatio2_.date_initial and '2022-05-06'<=reservatio2_.date_final)
 
 
-select * from land land0_
-cross join metaverse metaverse1_
- where ( land0_.deleted=false) and land0_.metaverse_id=metaverse1_.id and metaverse1_.name='Decentraland'
-and  not (exists (
-    select reservatio2_.id from reservation reservatio2_ where  ( reservatio2_.deleted=false)
-    and ('2022-05-05'>=reservatio2_.date_initial and '2022-05-05'<=reservatio2_.date_final) or ('2022-05-06'>=reservatio2_.date_initial and '2022-05-06'<=reservatio2_.date_final)
-))

@@ -17,8 +17,11 @@ public interface LandRepository extends JpaRepository<Land, Integer> {
 
     @Query("SELECT l FROM Land l " +
             "WHERE l.metaverse.name = :metaverseName AND NOT EXISTS (" +
-            "   SELECT r FROM Reservation r WHERE (:initialDate >= r.dateInitial AND :initialDate <= r.dateFinal) OR " +
-            "   (:endDate >= r.dateInitial AND :endDate <= r.dateFinal) " +
+            "   SELECT r.id FROM Reservation r " +
+            "   WHERE r.land.id = l.id and ( " +
+            "       (:initialDate >= r.dateInitial AND :initialDate <= r.dateFinal) OR " +
+            "       (:endDate >= r.dateInitial AND :endDate <= r.dateFinal)" +
+            "   ) " +
             ")")
     List<Land> findByMetaverseAndReservationDates(@Param("metaverseName") String metaverseName,
                                                   @Param("initialDate") Date initialDate,

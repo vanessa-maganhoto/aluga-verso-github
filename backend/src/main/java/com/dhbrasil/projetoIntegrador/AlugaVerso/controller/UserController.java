@@ -27,16 +27,13 @@ public class UserController {
     //Cadastrar usuário
     @PostMapping
     public ResponseEntity<UserDTO> createdUser(@RequestBody @Valid UserInsertDTO userInsertDTO){
-        //Integer id = userService.insert(dto);
-        //UserDTO userDTO = new UserDTO(userRepository.findById(id).get());
+
         UserDTO newDto = userService.insert(userInsertDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(newDto.getId()).toUri();
         return ResponseEntity.created(uri).body(newDto);
 
-//        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-//                .buildAndExpand(dto.getId()).toUri();
-//        return ResponseEntity.created(uri).body(userDTO);
+
     }
 
     //Listar todas os usuários
