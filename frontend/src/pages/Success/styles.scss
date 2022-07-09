@@ -1,0 +1,64 @@
+@import "../../global/variables.scss";
+
+.success-container {
+    height: 100%;
+    width: 100%;
+    margin-top: 225px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &__content {
+        width: 700px;
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        background-color: #1B2026;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid gray;
+        text-align: center;
+        border-radius: 10px;
+        
+        
+
+        &__checked {
+            width: 74px;
+            height: 74px;
+        }
+
+        &__title{
+            color: #00A8CA;
+            font-size: 24px;
+        }
+
+        &__text {
+            color: #A0A4A7;
+            font-size: 20px;
+            margin-top: -5px;
+        }
+
+        &__button {
+            background-color: #14181D;
+            text-decoration: none;
+            color: #00A8CA;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            width: 157px;
+            height: 34px;
+            border-radius: 10px;
+            text-align: center;
+            align-content: center;
+            letter-spacing: 1.0px;
+            
+        }
+
+        &__button:hover {
+            background-color: fade-in($color: #00a8ca54, $amount: 0)
+            
+        }
+
+    }
+}
+

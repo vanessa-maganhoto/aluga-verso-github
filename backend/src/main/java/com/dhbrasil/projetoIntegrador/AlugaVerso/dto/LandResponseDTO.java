@@ -15,6 +15,11 @@ public class LandResponseDTO {
     private CategoryDTO category;
     private MetaverseDTO metaverse;
 
+    private String localizationX;
+
+    private String localizationY;
+
+    private Double price;
 
     public LandResponseDTO() {
     }
@@ -31,6 +36,9 @@ public class LandResponseDTO {
         Land land = new Land();
         land.setId(this.id);
         land.setName(this.name);
+        land.setPrice(this.price);
+        land.setLocalizationX(this.localizationX);
+        land.setLocalizationY(this.localizationY);
         this.images.forEach(img -> land.getImages().add(img.toEntity()));
         if (this.category != null) land.setCategory(this.category.toEntity());
         if (this.metaverse != null) land.setMetaverse(this.metaverse.toEntity());
@@ -40,6 +48,9 @@ public class LandResponseDTO {
     public LandResponseDTO(Land land) {
         this.id = land.getId();
         this.name = land.getName();
+        this.price = land.getPrice();
+        this.localizationX = land.getLocalizationX();
+        this.localizationY = land.getLocalizationY();
 
         this.category = new CategoryDTO(land.getCategory());
         this.metaverse = new MetaverseDTO(land.getMetaverse());
@@ -90,4 +101,27 @@ public class LandResponseDTO {
         this.metaverse = metaverse;
     }
 
+    public String getLocalizationX() {
+        return localizationX;
+    }
+
+    public void setLocalizationX(String localizationX) {
+        this.localizationX = localizationX;
+    }
+
+    public String getLocalizationY() {
+        return localizationY;
+    }
+
+    public void setLocalizationY(String localizationY) {
+        this.localizationY = localizationY;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }

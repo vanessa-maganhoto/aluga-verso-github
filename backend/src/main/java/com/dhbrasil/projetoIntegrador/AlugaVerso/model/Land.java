@@ -37,16 +37,16 @@ public class Land {
     @JoinColumn(name = "metaverse_id")
     private Metaverse metaverse;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant createdAt;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant updatedAt;
 
     @Column(name = "deleted")
     private boolean deleted = Boolean.FALSE;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant deletedAt;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -60,6 +60,9 @@ public class Land {
     public Land() {
     }
 
+    public Land(Integer id) {
+        this.id = id;
+    }
 
     public Land(Integer id, String name, String description, String localizationX, String localizationY, Double price) {
         this.id = id;

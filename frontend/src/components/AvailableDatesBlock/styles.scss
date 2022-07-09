@@ -1,0 +1,98 @@
+@import "../../global/variables.scss";
+
+.available-dates {
+  padding: 0 32px;
+  margin-bottom: 32px;
+
+  @media (min-width: 1440px) {
+    padding: 0 80px;
+  }
+
+  @media (min-width: 1920px) {
+    padding: 0 160px;
+  }
+
+  &__heading {
+    font-family: 'Roboto Condensed';
+    color: $lighter-gray;
+    font-weight: 500;
+    font-size: 20;
+    margin: 32px 0;
+
+    @media (min-width: 768px) {
+      font-size: 30px;
+      margin: 54px 0;
+    }
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 372px 1fr;
+
+    @media (min-width: 864px) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 372px;
+    }
+
+    &__date-picker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media (min-width: 864px) {
+        justify-content: flex-start;
+      }
+    }
+
+    &__floating-date-picker {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 32px;
+      
+      @media (min-width: 864px) {
+        margin-top: 0;
+        justify-content: flex-end;
+      }
+    }
+  }
+  
+  .floating-date-picker {
+    background-color: $grayish-black;
+    text-align: center;
+    border: 2px solid $bright-blue;
+    max-width: 320px;
+    padding: 36px 8px 16px 8px;
+    border-radius: 10px;
+
+    p {
+      color: $lighter-gray;
+      text-align: center;
+    }
+
+    &__price {
+      margin: 0 0 32px 0;
+    }
+
+    &__info {
+      margin: 0;
+    }
+
+    & > button {
+      text-transform: uppercase;
+      color: $lighter-gray;
+      font-size: 18px;
+      padding: 12px 24px;
+      margin: 30px 0;
+      background-color: $lighter-black;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

@@ -2,11 +2,7 @@ package com.dhbrasil.projetoIntegrador.AlugaVerso.dto;
 
 import com.dhbrasil.projetoIntegrador.AlugaVerso.model.Reservation;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.Date;
 
 public class ReservationDTO {

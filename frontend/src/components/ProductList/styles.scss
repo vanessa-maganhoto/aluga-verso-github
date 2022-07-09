@@ -1,0 +1,30 @@
+@import "../../global/variables.scss";
+
+.product-list-container {
+    &__title {
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 29px;
+        
+        color: $cerulean-blue;
+    }
+
+    &__description {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 23px;
+
+        color: $cerulean-blue;
+    }
+
+    &__item-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 48px;
+
+        @media (min-width: 768px) {
+            padding: 30px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}

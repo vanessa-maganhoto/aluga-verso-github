@@ -1,0 +1,26 @@
+@import "../../global/variables.scss";
+
+.metaverses-container {
+    &__banner img {
+        max-height: 300px;
+        width: 100%;
+    }
+    &__title {
+        font-size: 40px;
+        text-align: center;
+        color: $cerulean-blue;
+    }
+
+    &__button-content {
+        margin-top: 24px;
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        padding: 0 24px;
+    }
+    &__button {
+        color: $cerulean-blue;
+        background: transparent;
+        border: none;
+    }
+}

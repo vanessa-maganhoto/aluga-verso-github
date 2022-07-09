@@ -1,0 +1,243 @@
+@import "../../global/variables.scss";
+//Product details
+
+h2 {
+  font-family: "Roboto Condensed";
+  font-weight: 500;
+}
+
+.product_details {
+  display: flex;
+  height: 125px;
+  color: #00a8ca;
+  background-color: #1f2328;
+  justify-content: space-between;
+}
+.product_details__container {
+  flex-direction: column;
+  font-size: 18px;
+  margin-left: 34px;
+  display: flex;
+  justify-content: center;
+}
+
+.product_details__description {
+  background-color: #14181d;
+  text-align: left;
+  color: #a9acaf;
+  margin: 70px;
+  margin-left: 40px;
+}
+.product_details__description h1 {
+  margin-left: 10px;
+}
+.product_details__description p {
+  margin-left: 12px;
+  font-size: clamp(1.75em, calc(1em + 3vw), 1.25em);
+  
+}
+
+// .product_details__date {
+//   margin: 25px;
+//   color: #a9acaf;
+//   font-size: 18px;
+// }
+
+.product_details__caracteristicas {
+  margin: 40px;
+  color: #a9acaf;
+  font-size: 18px;
+  display: flex;
+}
+
+.product_details__caracteristicas h1 {
+  margin-left: 10px;
+  font-size: 30px;
+}
+
+.product-details__attribute {
+  &__icon {
+    width: 30px;
+    height: 30px;
+    color: #00a8ca;
+    margin-right: 10px;
+  }
+}
+
+
+.product_details__busca {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #a9acaf;
+  font-size: 18px;
+}
+
+.btn_down {
+  color: #a9acaf;
+  padding: 10px 15px 10px 15px;
+  background: #282e36;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.product_details__images {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, 3vw);
+  grid-gap: 15px;
+  padding: 68px 37px 12px 37px;
+}
+
+.product_details__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 7;
+}
+
+.item2 {
+  grid-column-start: 5;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.item3 {
+  grid-column-start: 7;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.item4 {
+  grid-column-start: 5;
+  grid-column-end: 7;
+  grid-row-start: 4;
+  grid-row-end: 7;
+}
+.item5 {
+  grid-column-start: 7;
+  grid-column-end: 9;
+  grid-row-start: 4;
+  grid-row-end: 7;
+}
+
+.container_item {
+  margin-top: 8px;
+  align-items: center;
+  display: flex;
+}
+
+.button__view {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 24px;
+  width: 97%;
+  font-size: 18px;
+}
+
+.button-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+.button {
+  color: $cerulean-blue;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  
+  svg {
+    margin-right: 8px;
+  }
+}
+
+.view {
+  background: transparent;
+  border: none;
+  display: flex;
+  cursor: pointer;
+  color: $cerulean-blue;
+  justify-content: flex-end;
+}
+
+.landIcons__land__seguranca{
+  width: 34px;
+  height: 35px;
+  margin-right: 7px;
+}
+
+.landIcons__land {
+  width: 32px;
+  height: 35px;
+  margin-right: 7px;
+}
+
+.landIcons__localizador {
+  width: 25px;
+  height: 25px;
+  margin-right: 7px;
+}
+
+.layout{
+
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+.product_details{
+  &__politica{
+    color: #a9acaf;
+    margin: 20px;
+    width: 38%;
+    display: inline-block;
+    min-width: 40vw;
+  }
+  &__regra{
+    color: #a9acaf;
+    margin: 23px;
+    width: 52%;
+    display: inline-block;
+    min-width: 40vw;
+  }
+  
+  
+  &__caracteristicas {
+    display: flex;
+    grid-template-columns: 1fr;
+    grid-gap: 4px;
+    
+      @media (max-width: 768px) {
+        padding: 30px;
+          flex-direction: column;
+        }
+  }
+}
+
+
+.product_details__segurança {
+    color: #a9acaf;
+    margin: 20px;
+    height: 240px;
+    width: 60%;
+     @media (max-width: 768px) {
+      margin-bottom: 70px;
+      flex-direction: column;
+      }
+}

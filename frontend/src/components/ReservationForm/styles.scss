@@ -1,0 +1,221 @@
+@import "../../global/variables.scss";
+// trabalhar na versão para telas maiores
+.reservation {
+  &-form {
+    padding: 48px 10px;
+    background-color: $lighter-black;
+
+    @media (min-width: 768px) {
+      padding: 48px 64px;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 48px 96px;
+    }
+
+    @media (min-width: 1264px) {
+      display: grid;
+      grid-template-columns: 1fr 410px;
+      grid-template-rows: repeat(3, min-content);
+      column-gap: 28px;
+      padding: 48px 48px;
+    }
+
+    p, h3 {
+      color: $lighter-gray;
+    }
+    
+    h3 {
+      align-self: flex-start;
+      font-size: 20px;
+
+      @media (min-width: 768px) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &-personal-data {
+    @media (min-width: 1264px) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    h3 {
+      margin: 0 0 16px 0;
+    }
+  }
+
+  &-personal-data__inputs {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(4, 1fr);
+    background-color: $cerulean-blue;
+    border-radius: 8px;
+    padding: 30px 18px;
+    row-gap: 26px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      column-gap: 16px;
+    }
+
+    &__input-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      label {
+        font-size: 12px;
+        font-weight: 500;
+        color: $grayish-black;
+      }
+
+      input {
+        background-color: $grayish-black;
+        color: $lighter-gray;
+        font-size: 12px;
+        padding: 13px 11px;
+        border-radius: 5px;
+
+        &:disabled {
+          cursor: not-allowed;
+        }
+
+        &:focus-within {
+          outline: 2px solid $bright-yellow;
+        }
+      }
+    }
+  }
+
+  &-date-range {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 1264px) {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+  }
+
+  &-hour {
+    @media (min-width: 1264px) {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+    }
+  }
+
+  &-hour p {
+    margin: 15px 22px;
+    background-color: $darker-black;
+    border: 1px solid $darker-gray;
+    border-radius: 5px;
+    padding: 16px 32px;
+    font-size: 14px;
+    font-weight: 500;
+    max-width: 552px;
+
+    @media (min-width: 616px) {
+      margin: 15px auto;
+    }
+
+    @media (min-width: 1264px) {
+      padding: 16px 48px;
+    }
+
+    .black {
+      font-weight: 900;
+    }
+  }
+
+  &-details {
+    margin-top: 48px;
+    background-color: $cerulean-blue;
+    border-radius: 8px;
+    padding: 32px 0;
+    height: min-content;
+
+    @media (min-width: 1264px) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 4;
+      margin-top: 44px;
+    }
+
+    h3, p {
+      color: $grayish-black;
+    }
+
+    h3 {
+      margin: 0 16px 10px 16px;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .divider {
+      height: 1px;
+      width: 95%;
+      margin: 18px auto;
+      border-top: 1px solid $grayish-black;
+    }
+
+    &__category {
+      margin: 16px 16px 0 16px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    &__title {
+      margin: 2px 16px 0 16px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    &__metaverse {
+      margin: 36px 16px 0 16px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    &__date {
+      margin: 0 16px;
+      display: flex;
+      justify-content: space-between;
+
+      &__label {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      &__value {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+
+    button {
+      width: 360px;
+      padding: 18px;
+      text-align: center;
+      background-color: $grayish-black;
+      color: $cerulean-blue;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}

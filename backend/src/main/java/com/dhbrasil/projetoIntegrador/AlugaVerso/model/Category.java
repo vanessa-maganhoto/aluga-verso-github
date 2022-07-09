@@ -21,19 +21,20 @@ public class Category {
     private String imagemUrl;
     private String description;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
     Set<Land> land = new HashSet<>();
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant createdAt;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant updatedAt;
 
     @Column(name = "deleted")
     private boolean deleted = Boolean.FALSE;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant deletedAt;
     public Category(){}
 

@@ -1,6 +1,7 @@
 package com.dhbrasil.projetoIntegrador.AlugaVerso.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -28,8 +29,9 @@ public class CategoryTest {
 		categoria.setImagemUrl("https://distrito.me/wp-content/uploads/2021/10/metaverso-scaled.jpg");
 		assertEquals("https://distrito.me/wp-content/uploads/2021/10/metaverso-scaled.jpg", categoria.getImagemUrl());
 
-		categoria.setDeleted(false);
-		assertEquals(false, categoria.getDeletedAt());
+		//categoria.setDeleted(false);
+		assertFalse(categoria.isDeleted());
+		//assertEquals(false, categoria.getDeletedAt());
 
 		categoria.setDeletedAt(null);
 		categoria.isDeleted();

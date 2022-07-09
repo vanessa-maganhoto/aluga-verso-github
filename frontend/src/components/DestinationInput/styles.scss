@@ -1,0 +1,37 @@
+@import "../../global/variables.scss";
+
+.destination-input {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+
+  &:focus-within {
+    outline: 2px solid $bright-yellow;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 12px;
+    top: calc(50% - 12px);
+    font-size: 24px;
+    color: $lighter-gray;
+  }
+
+  select {
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 0 12px 0 45px;
+
+    background-color: $lighter-black;
+    font-size: 15px;
+    line-height: 45px;
+    color: $lighter-gray;
+
+    &::placeholder {
+      font-size: 13px;
+    }
+  }
+}

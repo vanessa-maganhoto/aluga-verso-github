@@ -1,0 +1,54 @@
+@import "../../global/variables.scss";
+
+.user-info {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 10px;
+
+  &.mobile {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+
+    .user-info__avatar {
+      margin-bottom: 4px;
+    }
+  }
+
+  &__avatar {
+    padding: 6px;
+    border-radius: 50%;
+    background-color: $cerulean-blue;
+    font-weight: 700;
+    font-size: 20px;
+    color: $darker-black;
+    user-select: none;
+  }
+
+  &__greeting {
+    color: $lighter-gray;
+    font-weight: 700;
+  }
+  
+  &__name {
+    color: $cerulean-blue;
+    font-weight: 700;
+  }
+
+  &__logout-button {
+    border: none;
+    background-color: transparent;
+    color: $lighter-gray;
+    font-size: 20px;
+    padding: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      color: $cerulean-blue;
+    }
+  }
+}

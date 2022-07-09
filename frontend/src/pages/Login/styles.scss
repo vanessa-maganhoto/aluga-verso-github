@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+@import "../../global/variables.scss";
+
+.login-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #E9E6EF;
+    font-family: Roboto;
+
+    
+    @media (min-width: 1024px) {
+        flex-direction: row
+    }
+
+
+    .container > * {
+        width: 50%;
+    }
+
+    &__login{
+
+        &__logo {
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            max-height: 309px;
+
+
+            @media (min-width: 1024px) {
+                width: 50%;
+                max-height: 100%;
+            }
+    }
+
+}
+
+    &__container-login {
+    min-height: 100%;
+    background-color: #1B2026;
+    padding: 60px;
+    flex: 1;
+    margin-top: 0px;
+
+    @media (min-width: 1024px) {
+        padding: 0 114px;
+    }
+   
+}
+
+    &__wrapper-form-additionals {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+}
+
+    &__wrapper-input {
+        box-sizing: border-box;
+        border-radius: 5px;
+        height: 75px;
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 15px;
+        background-color: #282E36;
+        font-size: 20px;
+        border-radius: 5px;
+        border: none;
+        color: #BEBEBE;
+        padding: 24px;
+
+        display: flex;
+        flex-direction: row;
+
+        @media (min-width: 768px) {
+            height: 80px;
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            width: calc(100% - 24px);
+            color: #BEBEBE;
+
+            @media (min-width: 768px) {
+                font-size: 24px;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        span {
+            color: white;
+        }
+    }
+
+    &__wraper-login {
+
+        margin-top: 0px;
+
+        @media (min-width: 1024px) {
+          margin-top: 92px;
+      }
+
+}
+
+.wraper__input-checkbox {
+    margin-top: 15px;
+    color: $cerulean-blue;
+
+}
+
+    &__recovery-login {
+        margin-top: 15px;
+        text-decoration: none;
+        color: $cerulean-blue;
+    
+}
+
+    &__login-form-btn { 
+        width: 100%;
+        max-width: 500px;
+        height: 54px;
+        background-color:$cerulean-blue;
+        color: white;
+        font-size: 16px;
+        font-weight: 700px;
+        line-height: 16px;
+
+        margin: 22px 0px 38px;
+        border-radius: 5px;
+        border: none;
+        text-decoration: none;
+}
+
+    &__login-form-title {
+        padding: 50px;
+        color: $cerulean-blue;
+        margin-bottom: 30px;
+        padding: 0;
+        margin-top: 0;
+}
+
+
+    &__text-bottom {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;;
+}
+
+    &__text-center span {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #BEBEBE;
+
+}
+
+    &__register {
+        color: #4285F4;
+        text-decoration: none;
+    }
+
+    &__text-heart {
+        color: #7D6C6F;
+    }
+
+    &__error-message {
+        color: rgba(255, 0, 0, 0.815);
+    }
+
+}
+
+
+

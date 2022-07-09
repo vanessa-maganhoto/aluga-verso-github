@@ -21,8 +21,10 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT-3")
+    @Column(columnDefinition = "TIMESTAMP")
     private Date dateInitial;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT-3")
+    @Column(columnDefinition = "TIMESTAMP")
     private Date dateFinal;
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -32,16 +34,16 @@ public class Reservation {
     @JoinColumn(name = "land_id")
     private Land land;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant createdAt;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP ")
     private Instant updatedAt;
 
     @Column(name = "deleted")
     private boolean deleted = Boolean.FALSE;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant deletedAt;
 
     public Reservation(){}

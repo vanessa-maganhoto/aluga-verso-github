@@ -1,0 +1,113 @@
+@import "../../global/variables.scss";
+
+/* From uiverse.io by @menezes11 */
+.animated-button {
+  position: relative;
+  padding: 6px;
+  outline: none;
+  border: 4px double $cerulean-blue;
+  background: #14181D;
+  color: $cerulean-blue;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  overflow: hidden;
+  transition: 0.2s;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+ }
+
+ .lit {
+  box-shadow: 0 0 10px rgba($bright-yellow, 0.5), 0 0 25px rgba($bright-yellow, 0.5), 0 0 50px rgba($bright-yellow, 0.5);
+  color: $bright-yellow;
+  border-color: $bright-yellow;
+
+  &:hover {
+    border-color: $cerulean-blue;
+    transition-delay: 0.6s;
+  }
+
+  &:active {
+    color: $cerulean-blue;
+  }
+ }
+ 
+ .animated-button:hover {
+  box-shadow: 0 0 10px $bright-blue, 0 0 25px $bright-blue, 0 0 50px $cerulean-blue;
+  transition-delay: 0.6s;
+ }
+ 
+ .animated-button span {
+  position: absolute;
+ }
+ 
+ .animated-button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, $bright-yellow);
+ }
+ 
+ .animated-button:hover span:nth-child(1) {
+  left: 100%;
+  transition: 0.7s;
+ }
+ 
+ .animated-button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, $bright-blue);
+ }
+ 
+ .animated-button:hover span:nth-child(3) {
+  right: 100%;
+  transition: 0.7s;
+  transition-delay: 0.35s;
+ }
+ 
+ .animated-button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, $bright-yellow);
+ }
+ 
+ .animated-button:hover span:nth-child(2) {
+  top: 100%;
+  transition: 0.7s;
+  transition-delay: 0.17s;
+ }
+ 
+ .animated-button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, $bright-blue);
+ }
+ 
+ .animated-button:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 0.7s;
+  transition-delay: 0.52s;
+ }
+ 
+ .animated-button:active {
+  background: $bright-yellow;
+  background: linear-gradient(to bottom right, rgba($cerulean-blue, 0.5), $darker-black);
+  box-shadow: 0 0 5px $bright-blue, 0 0 12px $bright-blue, 0 0 20px $cerulean-blue;
+  transition: 0.1s;
+ }
+ 
+ .animated-button:active span:nth-child(1) 
+ span:nth-child(2) 
+ span:nth-child(2) 
+ span:nth-child(2) {
+  transition: none;
+  transition-delay: none;
+ }

@@ -1,5 +1,7 @@
 package com.dhbrasil.projetoIntegrador.AlugaVerso.security;
 
+import com.dhbrasil.projetoIntegrador.AlugaVerso.dto.UserDTO;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,6 +12,7 @@ public class JWTObject {
     private Date issuedAt;
     private Date expiration;
     private List<String> roles = new ArrayList<>();
+    private UserDTO user;
 
 
 
@@ -52,5 +55,13 @@ public class JWTObject {
 
     public void setRoles(List<String> roles) {
         this.roles = roles;
+    }
+
+    public UserDTO getUser() {
+        return user;
+    }
+
+    public void setUser(UserDTO user) {
+        this.user = user;
     }
 }

@@ -18,16 +18,16 @@ public class Images {
     private String title;
     private String url;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant createdAt;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant updatedAt;
 
     @Column(name = "deleted")
     private boolean deleted = Boolean.FALSE;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant deletedAt;
 
     @ManyToOne()

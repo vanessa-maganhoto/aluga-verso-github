@@ -27,4 +27,16 @@ public interface LandRepository extends JpaRepository<Land, Integer> {
                                                   @Param("initialDate") Date initialDate,
                                                   @Param("endDate") Date endDate);
 
+
+
+    @Query("SELECT l FROM Land l " +
+            "WHERE NOT EXISTS (" +
+            "   SELECT r.id FROM Reservation r " +
+            "   WHERE r.land.id = l.id and ( " +
+            "       (:initialDate >= r.dateInitial AND :initialDate <= r.dateFinal) OR " +
+            "       (:endDate >= r.dateInitial AND :endDate <= r.dateFinal)" +
+            "   ) " +
+            ")")
+    List<Land> findByReservationDates(@Param("initialDate") Date initialDate,
+                                      @Param("endDate") Date endDate);
 }

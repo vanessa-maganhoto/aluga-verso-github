@@ -1,0 +1,85 @@
+@import "../../global/variables.scss";
+
+.search {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  background-image: url("../../assets/img/placeholder_banner.jpg");
+  background-size: cover;
+
+  &__form-container {
+    background-color: #00a8ca;
+    border-radius: 10px;
+    padding: 12px 30px;
+    max-width: 422px;
+    color: $darker-black;
+
+    h1 {
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center;
+    }
+
+    p {
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button[type="submit"] {
+      background-color: $lighter-black;
+      border-radius: 5px;
+      border: none;
+      max-width: 152px;
+      padding: 12px 35px;
+
+      color: $lighter-gray;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 21px;
+    }
+
+    button[type="reset"] {
+      background-color: transparent;
+      border: none;
+
+      color: $lighter-black;
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .search {
+    padding: 105px;
+    display: block;
+
+    &__form-container {
+      padding: 25px 61px;
+
+      h1 {
+        font-size: 35px;
+        line-height: 41px;
+      }
+  
+      p {
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+  }
+}

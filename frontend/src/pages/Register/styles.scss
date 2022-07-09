@@ -1,0 +1,311 @@
+@import "../../global/variables.scss";
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    background: #D9D9D9;
+    font-family: Roboto;
+    background: $darker-black;
+
+    @media (min-width: 768px) {
+        
+    }
+
+   
+
+    &__title {
+        padding: 0 40px;
+        margin: 20px auto 40px;
+        text-align: center;
+        color: #B1B1B1;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        margin: 0 100px 0 100px;
+        
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+    
+    
+
+    &__form, &__facebook {
+        padding:  15px;
+        
+    }
+
+    
+
+    &__form {
+        &__title{
+            text-align: center;
+            color: #14181D;
+        }
+
+        
+    
+    }
+
+    &__facebook {
+        background: #A9ACAF;
+        margin: 0 -100px;
+        align-items: center;
+        text-align: center;
+        
+        
+        
+        @media (min-width: 768px) {
+            background: transparent;
+            margin: 0;
+            display: flex;
+            flex: 1;
+            
+            justify-content: center;
+            align-items: center;
+            
+            &__content {
+                margin: auto 0;
+                padding: 72px 3px;
+                background: #A9ACAF;
+                border-radius: 10px;
+                width: 100%;
+                max-width: 400px;
+                text-align: center;
+                color: #14181D;
+            }
+        }
+
+        display: flex;
+        flex-direction: column;
+
+        &__button {
+            // width: 221px;
+            width: 100%;
+            max-width: 291px;
+            height: 39px;
+            background-color:#1954C7;
+            color: white;
+            font-size: 22px;
+            font-weight: 700px;
+            line-height: 16px;
+            border-radius: 5px;
+            border: none;
+           
+        }
+    }
+    
+    
+
+    &__content-divider {
+        display: none;
+        
+        @media (min-width: 768px) {
+            display: flex;
+            justify-content: center;
+            width: 100px;
+            position: relative;
+
+            &__divider {
+                width: 3px;
+                background: $lighter-gray;
+                height: 100%;   
+            }
+
+            &__text {
+                position: absolute;
+                top: 50%;
+                display: block;
+                margin: 0 auto;
+                padding: 24px;
+                background: $darker-black;
+                transform: translateY(-50%);
+
+                font-weight: 700;
+                font-size: 30px;
+                line-height: 35px;
+
+                color: #BEBEBE;
+            }
+        }
+    }
+
+    &__form-content {
+        margin: 16px -100px 0;
+        padding: 0 32px 48px;
+        background: #A9ACAF;
+
+        @media (min-width: 768px) {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+
+        }
+    }
+
+    &__form {
+        @media (min-width: 768px) {
+            padding: 72px 32px;
+            background: #A9ACAF;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        input {
+            border-radius: 5px;
+            height: 50px;
+            //width: 301px;
+            width: 100%;
+            margin-bottom: 15px;
+            background-color: #282E36;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            color: #BEBEBE;
+            padding: 0 8px;
+
+            @media (min-width: 768px) {
+                font-size: 20px;
+            }
+        }
+
+        &__input-wrapper {
+            @media (min-width: 768px) {
+                display: flex;
+            
+                & > * + * {
+                    margin-left: 16px;
+                }
+            }
+        }
+
+        &__input {
+            margin: 16px 10px;
+            display: flex;
+            flex-direction: column;
+
+            // label, span {
+            //     color: $darker-black;
+            // }
+
+            &__error-message {
+                color: rgba(255, 0, 0, 0.815);
+            }
+            
+        }
+
+        &__submit {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        &__submit-button {
+
+            @media (min-width: 768px) {
+                width: 33%;
+                align-self: center;
+                
+            }
+
+            @media (min-width: 1024px) {
+                width: 33%;
+                align-self: center;
+               
+            }
+
+
+
+            margin-top: 24px;
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            align-items: center;
+
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+
+            color: #FFFFFF;
+            background: $cerulean-blue;
+            border: none;
+            border-radius: 4px;
+        }
+
+        
+    }
+
+    &__wrapper-input {
+        box-sizing: border-box;
+        border-radius: 5px;
+        height: 50px;
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 15px;
+        background-color: #282E36;
+        font-size: 20px;
+        border-radius: 5px;
+        padding: 12px 10px 12px 0;
+        border: none;
+        color: #BEBEBE;
+
+        display: flex;
+        flex-direction: row;
+
+        input {
+            background: transparent;
+            border: none;
+            height: 24px;
+            font-size: 20px;
+            width: calc(100% - 24px);
+            color: #BEBEBE;
+
+            
+            &:focus {
+                outline: none;
+            }
+        }
+
+        span {
+            color: white;
+        }
+
+       
+    }
+
+    &__login {
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__title, &__link {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 14px;
+            text-align: center;
+        }
+
+        &__title {
+            color: #383B58;
+        }
+
+        &__link {
+            margin-top: 16px;
+            color: #607cd6;
+            text-decoration: none;
+        }
+    }
+
+    
+}
