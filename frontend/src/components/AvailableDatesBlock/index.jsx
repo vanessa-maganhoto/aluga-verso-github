@@ -36,7 +36,7 @@ export function AvailableDatesBlock({
     endDate,
     setStartDate,
     setEndDate,
-    monthsShown: windowWidth > 1184 ? 2 : 1,
+    monthsShown: windowWidth > 1150 ? 2 : 1,
     excludeDateIntervals
   };
 
@@ -65,8 +65,7 @@ export function AvailableDatesBlock({
               Reserve agora
             </button>
             <p className="floating-date-picker__info">
-              Não se preocupe, você ainda não será cobrado ao clicar neste
-              botão!
+              Não se preocupe, você não será cobrado ao clicar neste botão!
             </p>
           </div>
         </div>

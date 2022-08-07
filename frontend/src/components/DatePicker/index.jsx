@@ -1,8 +1,5 @@
-import {
-  FaCalendarDay,
-  FaChevronCircleRight,
-  FaChevronCircleLeft,
-} from "react-icons/fa";
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { FaRegCalendarAlt } from 'react-icons/fa';
 import ReactDatePicker from "react-datepicker";
 import ptBR from "date-fns/locale/pt-BR";
 import "react-datepicker/dist/react-datepicker.css";
@@ -14,6 +11,7 @@ registerLocale("pt-BR", ptBR);
 export function DatePicker({
   inline = false,
   monthsShown = 2,
+  withPortal = false,
   startDate,
   endDate,
   setStartDate = () => {},
@@ -27,6 +25,7 @@ export function DatePicker({
   const commomConfig = {
     className: "date-picker__inputs__input",
     monthsShown,
+    withPortal,
     showPopperArrow: false,
     showDisabledMonthNavigation: true,
     locale: "pt-BR",
@@ -34,8 +33,8 @@ export function DatePicker({
     formatWeekDay: (nameOfDay) => nameOfDay.substring(0, 1).toUpperCase(),
     startDate: startDate,
     endDate: endDate,
-    nextMonthButtonLabel: <FaChevronCircleRight />,
-    previousMonthButtonLabel: <FaChevronCircleLeft />,
+    nextMonthButtonLabel: <MdChevronRight />,
+    previousMonthButtonLabel: <MdChevronLeft />,
     excludeDateIntervals
   };
 
@@ -57,7 +56,7 @@ export function DatePicker({
 
   return (
     <div className="date-picker">
-      <FaCalendarDay className="date-picker__icon" />
+      <FaRegCalendarAlt className="date-picker__icon" />
       <span className="date-picker__inputs">
         <ReactDatePicker
           {...commomConfig}

@@ -3,23 +3,31 @@
 .success-container {
     height: 100%;
     width: 100%;
-    margin-top: 225px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     
+    @media (min-width: 768px) {
+      margin-top: 180px;
+  }
+    
     &__content {
-        width: 700px;
-        height: 320px;
+        width: 400px;
+        height: 400px;
         display: flex;
         flex-direction: column;
-        background-color: #1B2026;
+        background-color: $bg-container;
         align-items: center;
         justify-content: center;
-        border: 2px solid gray;
         text-align: center;
-        border-radius: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
         
+        @media (min-width: 768px) {
+            width: 1102px;
+            height: 446px;
+        }
         
 
         &__checked {
@@ -28,37 +36,34 @@
         }
 
         &__title{
-            color: #00A8CA;
+            color:$color-regular-text;
             font-size: 24px;
+            font-weight: 700;
+
         }
 
         &__text {
-            color: #A0A4A7;
+            color: $color-regular-text;
             font-size: 20px;
             margin-top: -5px;
         }
 
         &__button {
-            background-color: #14181D;
+            background-color:$bg-button;
             text-decoration: none;
-            color: #00A8CA;
+            color: #1A1D22;
             font-size: 15px;
             font-weight: 700;
             border: none;
-            width: 157px;
-            height: 34px;
-            border-radius: 10px;
+            width: 245px;
+            height: 40px;
             text-align: center;
             align-content: center;
             letter-spacing: 1.0px;
+            font-family: Roboto Mono;
             
         }
-
-        &__button:hover {
-            background-color: fade-in($color: #00a8ca54, $amount: 0)
-            
-        }
-
+       
     }
 }
 

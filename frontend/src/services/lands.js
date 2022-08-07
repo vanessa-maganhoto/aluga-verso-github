@@ -25,4 +25,8 @@ export const LandsAPI = {
   loadLandDetails: async (id) => {
     return await api.get(`/lands/${id}`);
   },
+
+  registerLand: async(payload) => {
+    return await api.post('/lands', payload)
+  }
 };

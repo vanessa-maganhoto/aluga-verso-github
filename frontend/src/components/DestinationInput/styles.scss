@@ -2,36 +2,39 @@
 
 .destination-input {
   position: relative;
-  width: 100%;
+  width: 302px;
+  height: 45px;
   overflow: hidden;
-  border-radius: 5px;
+  margin: 40px 0 10px;
+  //border-radius: 5px;
 
   &:focus-within {
-    outline: 2px solid $bright-yellow;
+    outline: 2px solid $border-color-colored;
   }
 
   &__icon {
     position: absolute;
     left: 12px;
     top: calc(50% - 12px);
-    font-size: 24px;
-    color: $lighter-gray;
+    font-size: 20px;
+    color:$light-icon;
   }
 
   select {
     height: 45px;
     width: 100%;
     border: none;
-    border-radius: 5px;
+    //border-radius: 5px;
     padding: 0 12px 0 45px;
 
-    background-color: $lighter-black;
-    font-size: 15px;
-    line-height: 45px;
-    color: $lighter-gray;
+    background-color: $bg-input;
+    font-size: 16px;
+    //line-height: 45px;
+    color: $light-icon;
 
     &::placeholder {
       font-size: 13px;
     }
+
   }
 }

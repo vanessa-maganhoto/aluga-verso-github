@@ -27,9 +27,7 @@ export const UsersAPI = {
     return await api.post("/login", payload);
   },
 
-  fetchMe: async (token) => {
-    return await api.get("/users/me", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+  fetchMe: async () => {
+    return await api.get("/users/me");
   },
 };

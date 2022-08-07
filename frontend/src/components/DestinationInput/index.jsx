@@ -16,7 +16,7 @@ export function DestinationInput({ onChange = () => {}, options }) {
         defaultValue=""
       >
         <option disabled value="" hidden>
-          Qual multiverso deseja ir?
+          Para qual multiverso deseja ir?
         </option>
         {options.map((optionValue) => (
           <option key={optionValue.value} value={optionValue.value}>

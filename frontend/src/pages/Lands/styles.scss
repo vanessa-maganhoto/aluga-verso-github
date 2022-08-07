@@ -1,26 +1,61 @@
 @import "../../global/variables.scss";
 
-.metaverses-container {
-    &__banner img {
-        max-height: 300px;
-        width: 100%;
-    }
-    &__title {
-        font-size: 40px;
-        text-align: center;
-        color: $cerulean-blue;
+.lands-page {
+  font-family: "Roboto", sans-serif;
+  padding-bottom: 50px;
+
+  &__return-btn {
+    padding: 16px 0 6px 12px;
+
+    @media (min-width: 768px) {
+      padding: 24px 0 28px 30px;
     }
 
-    &__button-content {
-        margin-top: 24px;
-        display: flex;
-        width: 100%;
-        justify-content: flex-end;
-        padding: 0 24px;
+    button {
+      @extend %icon-button;
+
     }
-    &__button {
-        color: $cerulean-blue;
-        background: transparent;
-        border: none;
+
+    button svg {
+      @media (min-width: 768px) {
+        height: 28px;
+        width: 28px;
+      }
     }
+  }
+
+  &__banner-img {
+    height: 68px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: $color-regular-text;
+    margin: 20px 0;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 768px) {
+  .lands-page {
+    padding-bottom: 80px;
+
+    &__banner-img {
+      height: 200px;
+      width: calc(100% - 18px * 2);
+      margin: 0 18px;
+    }
+
+    &__title {
+      font-size: 28px;
+      line-height: 32px;
+      margin: 30px 0;
+    }
+  }
 }

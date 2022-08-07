@@ -1,9 +1,12 @@
 import React from "react";
 import { UsersAPI } from "../services/users";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext({
-  user: {name: ""},
+  user: { name: "" },
   token: "",
+  userDetails: {},
   onAuth: async () => {},
   onRegister: async () => {},
   onLogout: () => {},
@@ -11,14 +14,27 @@ const AuthContext = React.createContext({
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = React.useState({});
+  const [userDetails, setUserDetails] = React.useState({});
   const [token, setToken] = React.useState("");
+  const navigate = useNavigate();
 
   const onSaveUser = () => {
     const userName = localStorage.getItem("@metaverse/user");
     const userToken = localStorage.getItem("@metaverse/token");
+    const userData = localStorage.getItem("@metaverse/userDetails");
 
     if (userName) setUser({ name: userName });
     if (userToken) setToken(userToken);
+    if (userData) setUserDetails(JSON.parse(userData));
+  };
+
+  const getUserDetails = async () => {
+    await UsersAPI.fetchMe().then((response) =>
+      localStorage.setItem(
+        "@metaverse/userDetails",
+        JSON.stringify(response.data)
+      )
+    );
   };
 
   const resetUserData = () => {
@@ -27,18 +43,32 @@ export const AuthProvider = ({ children }) => {
   };
 
   const onAuth = async (values) => {
-    return await UsersAPI.login(values)
-      .then((response) => {
+    await UsersAPI.login(values)
+      .then(async (response) => {
         localStorage.setItem("@metaverse/user", response.data.login);
         localStorage.setItem("@metaverse/token", response.data.token);
+        await getUserDetails();
         onSaveUser();
-        alert("Sucesso!! Logando...");
+
+        toast("Sucesso! Bem vindo ao Alugaverso!", {
+          type: "success",
+          theme: "dark",
+          autoClose: 1000,
+        });
+        navigate("/");
       })
-      .catch(() =>
-        alert(
-          "Infelizmente, você não pôde efetuar login. Por favor, tente novamente mais tarde."
-        )
-      );
+      .catch((e) => {
+        console.log(e);
+        const message =
+          e.message === "Request failed with status code 403" ||
+          e.message === "Request failed with status code 404"
+            ? "Usuário ou senha inválidos."
+            : "Houve algum erro durante o login, tente novamente.";
+        toast(message, {
+          type: "error",
+          theme: "dark",
+        });
+      });
   };
 
   const onRegister = async (values) => {
@@ -51,14 +81,19 @@ export const AuthProvider = ({ children }) => {
           })
       )
       .catch(() =>
-        alert(
-          "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde."
+        toast(
+          "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde.",
+          {
+            type: "error",
+            theme: "dark",
+          }
         )
       );
   };
 
   const onLogout = () => {
     localStorage.removeItem("@metaverse/user");
+    localStorage.removeItem("@metaverse/role");
     localStorage.removeItem("@metaverse/token");
     resetUserData();
   };
@@ -68,7 +103,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, token, onAuth, onLogout, onRegister }}>
+    <AuthContext.Provider
+      value={{ user, token, userDetails, onAuth, onLogout, onRegister }}
+    >
       {children}
     </AuthContext.Provider>
   );

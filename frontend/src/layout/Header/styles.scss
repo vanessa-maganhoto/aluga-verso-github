@@ -1,109 +1,55 @@
 @import "../../global/variables.scss";
 
+
 .header {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 7px 10px;
   position: fixed;
   top: 0;
-  background-color: $bg-color;
+  background-color: $bg-body;
   z-index: 1000;
 
   &__logo {
-    height: 45px;
-    width: 72px;
+    display: none;
   }
 
   @media (min-width: 768px) {
+    padding: 7px 46px;
+    background-color: $bg-header;
+
     &__logo {
-      height: 60px;
-      width: 96px;
-    }
-  }
-
-  &__drawer__content {
-    background-color: $cerulean-blue;
-    
-    &__header {
-      position: relative;
-      height: 120px;
-      background-color: $bg-color;
-
-      &__close-button {
-        position: absolute;
-        top: 8px;
-        left: 8px;
-        padding: 0;
-        border: none;
-        background-color: transparent;
-        color: $lighter-gray;
-        font-size: 24px;
-      }
-
-      &__user-info {
-        position: absolute;
-        bottom: 5px;
-        right: 15px;
-
-        color: $cerulean-blue;
-        font-size: 20px;
-        line-height: 23px;
-        font-weight: 700;
-      }
-    }
-
-    &__nav {
-      height: 354px;
-      background-color: $cerulean-blue;
-      padding: 23px 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 11px;
-      position: relative;
-
-      &__link {
-        color: $lighter-black;
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 18px;
-        text-decoration: none;
-      }
-
-      &__logout {
-        position: absolute;
-        bottom: 18px;
-        right: 15px;
-        color: $lighter-black;
-        font-weight: 500;
-        border: none;
-        padding: 0;
-        background-color: transparent;
-      }
+      display: block;
     }
   }
 
   &__nav {
     display: none;
-  }
-
-  @media (min-width: 768px) {
-    &__nav {
-      font-family: 'Roboto Condensed', sans-serif;
+  
+    @media (min-width: 768px) {
       display: flex;
+      align-items: center;
       width: fit-content;
-      gap: 20px;
+      gap: 16px;
+    }
+
+    &__highlight {
+      margin-right: 48px;
     }
   }
 
   &__menu-button {
-    border: none;
-    border-radius: 4px;
-    background-color: transparent;
+    @extend %icon-button;
     font-size: 24px;
-    color: $cerulean-blue;
+    color: $colored-icon;
+  }
+
+  &__search-button {
+    @extend %icon-button;
+    font-size: 24px;
+    color: $colored-icon;
   }
 
   @media (min-width: 768px) {

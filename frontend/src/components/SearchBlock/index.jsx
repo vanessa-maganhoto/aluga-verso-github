@@ -7,8 +7,9 @@ import { DestinationInput } from "../DestinationInput";
 import { useNavigate } from "react-router-dom";
 import "./styles.scss";
 import { useDateRange } from "../../context/DateRangeProvider";
+import { toast } from "react-toastify";
 
-export function SearchBlock() {
+export function                          SearchBlock() {
   const [metaversesOptions, setMetaversesOptions] = useState([]);
   const navigate = useNavigate();
   const { startDate, endDate, setStartDate, setEndDate } = useDateRange();
@@ -34,10 +35,13 @@ export function SearchBlock() {
       navigate(`/lands?metaverseName=${metaverseName}&initialDate=${start}&endDate=${end}`);
     }
     else if (startDate && endDate) {
-      navigate(`/lands?initialDate=${start}&endDate=${end}`);
+      toast("Ops! Em qual metaverso você deseja alugar?", {
+        type: "warning",
+        theme: "dark",
+      });
     }
     else if (metaverseId) {
-      navigate(`/metaverses/${metaverseId}`);
+      navigate(`/lands?metaverseId=${metaverseId}`);
     }
   };
 
@@ -51,8 +55,7 @@ export function SearchBlock() {
       <div className="search__form-container">
         <h1>Reserve o seu terreno no Metaverso</h1>
         <p>
-          A escolha de quem quer usufruir de um terreno pelo tempo que precisar
-          a nível mundial.
+          A alternativa para usufruir um terreno no tempo que precisar a nível mundial.
         </p>
         <form onSubmit={handleSubmit} onReset={clearInputs}>
           <DestinationInput options={metaversesOptions} />
@@ -63,7 +66,6 @@ export function SearchBlock() {
             setEndDate={setEndDate}
           />
           <button type="submit">Pesquisar</button>
-          <button type="reset">Limpar pesquisa</button>
         </form>
       </div>
     </section>

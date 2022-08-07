@@ -1,11 +1,14 @@
 import Confirm from "../../assets/img/confirm-logo.svg";
-import { ReactComponent as Confirmed } from "../../assets/img/confirm-button.svg";
+import Helmet from 'react-helmet';
 
 import "./styles.scss";
 
 export function Success() {
   return (
     <div className="success-container">
+      <Helmet>
+        <title>Sucesso | Alugaverso</title>
+      </Helmet>
       <div className="success-container__content">
         <img
           src={Confirm}
@@ -20,7 +23,7 @@ export function Success() {
         </p>
         <a href="/">
           <button className="success-container__content__button">
-            Ok <Confirmed />
+           Página Inicial
           </button>
         </a>
       </div>

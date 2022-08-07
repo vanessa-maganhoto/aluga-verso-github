@@ -15,8 +15,10 @@ $bright-yellow: #FBC02D;
 $bg-color: $darker-black;
 
 // Sizes
-$header-height: 84px;
-$footer-height: 63px;
+$header-height: 80px;
+$footer-height: 64px;
+$header-height-mobile: 38px;
+$footer-height-mobile: 37px;
 
 // NEW COLOR PALETTE
 // Agora num sistema de cor por função, e não por nome da cor.
@@ -26,9 +28,14 @@ $footer-height: 63px;
 $bg-body: #1A1D22;
 $bg-container: #25292E;
 $bg-header: #169DC3;
+$bg-header-mobile: #1A1D22;
 $bg-footer: #169DC3;
 $bg-input: #1A1D22;
 $bg-button: #169DC3;
+$bg-avatar: #1A1D22;
+$bg-avatar-mobile: #169DC3;
+$bg-input-form-home:#25292E;
+
 
 // Font colors
 $color-button-text: #1A1D22;
@@ -38,10 +45,24 @@ $color-regular-text: #F6F7F8;
 
 // Other colors
 $error-color: #FF6827;
-$disabled-color: #C6C7C8;
-$disabled-color: #C6C7C8;
+$disabled-color: #787A7D;
+$placeholder-color: #787A7D;
 $line: #169DC3;
-$border-color: #169DC3;
+$header-line: #1A1D22;
+$border-color-link: #1A1D22;
+$border-color-colored: #169DC3;
 $colored-icon: #169DC3;
 $light-icon: #F6F7F8;
 $dark-icon: #1A1D22;
+
+// Biblioteca da galeria
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+
+// Sass placeholders
+%icon-button {
+  display: inline-flex;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  outline-color: $colored-icon;
+}

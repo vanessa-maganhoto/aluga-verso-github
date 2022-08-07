@@ -5,31 +5,64 @@ import { ProductList } from "../../components/ProductList";
 import { LandsAPI } from "../../services/lands";
 import { MetaversesAPI } from "../../services/metaverses";
 
-import { ReactComponent as ChevronLeftSvg } from "../../assets/img/chevron-left.svg";
-import { ReactComponent as LandSvg } from "../../assets/img/land.svg";
+import { ReactComponent as Arrow } from "../../assets/img/arrow.svg";
+import Helmet from "react-helmet";
 
 import "./styles.scss";
+import { CategoriesAPI } from "../../services/categories";
 
 export function Lands() {
   const [lands, setLands] = useState([]);
   const [metaverse, setMetaverse] = useState({});
   const [searchParams] = useSearchParams();
+  const [categoryId, setCategoryId] = useState("");
+  const [metaverseId, setMetaverseId] = useState("");
+  const [category, setCategory] = useState(null);
   const [metaverseName, setMetaverseName] = useState("Decentraland");
   const [initialDate, setInitialDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
+    setCategoryId(searchParams.get("categoryId"));
+    setMetaverseId(searchParams.get("metaverseId"));
     setMetaverseName(searchParams.get("metaverseName"));
     setInitialDate(searchParams.get("initialDate"));
     setEndDate(searchParams.get("endDate"));
   }, [searchParams]);
 
   useEffect(() => {
-    if (metaverseName && initialDate && endDate) {
-      LandsAPI.filterByDatesAndMetaverse(metaverseName, initialDate, endDate).then(
-        (response) => setLands(response.data)
+    // Search by category
+    if (categoryId) {
+      LandsAPI.filterByCategory(categoryId).then((response) =>
+        setLands(response.data)
       );
+      CategoriesAPI.getCategories().then((response) => {
+        const selectedCategory = response.data.content.find(
+          (categoryItem) => categoryItem.id === +categoryId
+        );
+        setCategory(selectedCategory);
+      });
+    }
+    // Search by metaverse
+    if (metaverseId) {
+      LandsAPI.filterByMetaverse(metaverseId).then((response) =>
+        setLands(response.data)
+      );
+      MetaversesAPI.getMetaverses().then((response) => {
+        const selectedMetaverse = response.data.content.find(
+          (metaverseItem) => metaverseItem.id === +metaverseId
+        );
+        setMetaverse(selectedMetaverse);
+      });
+    }
+    // Search by date and metaverse
+    if (metaverseName && initialDate && endDate) {
+      LandsAPI.filterByDatesAndMetaverse(
+        metaverseName,
+        initialDate,
+        endDate
+      ).then((response) => setLands(response.data));
 
       MetaversesAPI.getMetaverses().then((response) => {
         const selectedMetaverse = response.data.content.find(
@@ -38,29 +71,29 @@ export function Lands() {
         setMetaverse(selectedMetaverse);
       });
     }
-  }, [metaverseName, initialDate, endDate]);
+  }, [metaverseName, initialDate, endDate, metaverseId, categoryId]);
+
+  const bannerUrl = category ? category.imagemUrl : metaverse.imagemUrl;
+  const resultsTitle = category ? category.name : "Terrenos disponíveis";
 
   return (
-    <div className="home-container">
-      <div className="metaverses-container__banner">
-        <img src={metaverse?.imagemUrl} alt={metaverse?.name} />
-      </div>
-
-      <div className="metaverses-container__button-content">
-        <button
-          className="metaverses-container__button"
-          onClick={() => navigate(-1)}
-        >
-          <ChevronLeftSvg /> Voltar
+    <div className="lands-page">
+      <Helmet>
+        <title>Lands | Alugaverso</title>
+      </Helmet>
+      <div className="lands-page__return-btn">
+        <button onClick={() => navigate(-1)}>
+          <Arrow />
         </button>
       </div>
 
-      <h3 className="metaverses-container__title">
-        Terrenos disponíveis <LandSvg />{" "}
-      </h3>
-      <div className="home-container__product-list-wrapper">
-        <ProductList items={lands} />
-      </div>
+      <div
+        className="lands-page__banner-img"
+        style={{ backgroundImage: `url(${bannerUrl})` }}
+      ></div>
+
+      <h3 className="lands-page__title">{resultsTitle}</h3>
+      <ProductList items={lands} />
     </div>
   );
 }

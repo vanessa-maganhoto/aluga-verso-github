@@ -9,7 +9,7 @@ export function ProductList({ title, description, items }) {
       {description && (
         <p className="product-list-container__description">{description}</p>
       )}
-      <div className="product-list-container__item-wrapper">
+      <div className="product-list-container__items-wrapper">
         {items.map((item, index) => (
           <ProductItem
             key={index}

@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Formik, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
 import { ReactComponent as EyeSvg } from "../../assets/img/eye.svg";
+import { ReactComponent as Facebook } from "../../assets/img/facebook-logo.svg";
+import { ReactComponent as Google } from "../../assets/img/google-logo.svg";
+import Helmet from 'react-helmet';
 
 import "./styles.scss";
 import { useAuth } from "../../providers/AuthProvider";
@@ -45,6 +48,9 @@ export function Register() {
 
   return (
     <div className="register-container">
+      <Helmet>
+        <title>Cadastro | Alugaverso</title>
+      </Helmet>
       <h1 className="register-container__title">
         Alugue terrenos e compartilhe experiências autênticas no Metaverso
       </h1>
@@ -53,10 +59,15 @@ export function Register() {
         <div className="register-container__facebook">
           <div className="register-container__facebook__content">
             <h2>Cadastre-se mais rápido com</h2>
-            <button className="register-container__facebook__button">
-              Facebook
-            </button>
-            <h5>
+            <div  className="register-container__button-group">
+              <button className="register-container__google__button">
+                Continuar com o Google <Google />
+              </button>
+              <button className="register-container__facebook__button">
+                Continuar com o Facebook <Facebook />
+              </button>
+            </div>
+            <h5 className="register-container__facebook__info">
               <i>Jamais publicaremos sem a sua permissão</i>
             </h5>
           </div>
@@ -191,7 +202,7 @@ export function Register() {
           Já tem uma conta?
         </span>
         <a
-          href="https://google.com"
+          href="/login"
           className="register-container__login__link"
         >
           Iniciar sessão

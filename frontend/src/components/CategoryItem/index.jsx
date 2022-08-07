@@ -5,7 +5,7 @@ export function CategoryItem({ id, name, description, imagemUrl }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/categories/${id}`);
+    navigate(`/lands?categoryId=${id}`);
   };
 
   return (

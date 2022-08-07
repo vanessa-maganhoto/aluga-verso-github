@@ -35,8 +35,9 @@ export function ProductItem({
 
         <div className="product-item-container__description">
           Alugue a partir de
-          <strong>R${price}/dia</strong>
+          <strong> R${price}/dia</strong>
         </div>
+        <div className="product-item-container__divider"></div>
         <button
           onClick={handleRedirect}
           className="product-item-container__button"
